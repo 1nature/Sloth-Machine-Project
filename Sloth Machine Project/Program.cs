@@ -2,23 +2,23 @@
 {
     internal class Program
     {
-        const int minRandNumber = 0;
-        const int maxRandNumber = 20;
-        const int numberOfRows = 3;
-        const int numberOfColumns = 3;
+        const int MINRANDNUMBER = 0;
+        const int MAXRANDNUMBER = 20;
+        const int NUMBEROFROWS = 3;
+        const int NUMBEROFCOLUMNS = 3;
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to the slot machine game\n");
 
             int wager = 3;
             Random generator = new Random();
-            int[,] arrayNumbers = new int[numberOfRows, numberOfColumns];
+            int[,] arrayNumbers = new int[NUMBEROFROWS, NUMBEROFCOLUMNS];
 
-            for (int row = 0; row < numberOfRows; row++)
+            for (int row = 0; row < NUMBEROFROWS; row++)
             {
-                for (int column = 0; column < numberOfColumns; column++)
+                for (int column = 0; column < NUMBEROFCOLUMNS; column++)
                 {
-                    arrayNumbers[row, column] = generator.Next(minRandNumber, maxRandNumber);
+                    arrayNumbers[row, column] = generator.Next(MINRANDNUMBER, MAXRANDNUMBER);
                     //Console.Write(arrayNumbers[row, column]);
                 }
             }
