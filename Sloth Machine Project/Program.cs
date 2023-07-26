@@ -6,12 +6,14 @@
         const int MAXRANDNUMBER = 20;
         const int NUMBEROFROWS = 3;
         const int NUMBEROFCOLUMNS = 3;
+
+        public static readonly Random generator = new Random();
+
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to the slot machine game\n");
 
             int wager = 3;
-            Random generator = new Random();
             int[,] arrayNumbers = new int[NUMBEROFROWS, NUMBEROFCOLUMNS];
 
             for (int row = 0; row < NUMBEROFROWS; row++)
