@@ -21,27 +21,11 @@
                 for (int column = 0; column < NUMBEROFCOLUMNS; column++)
                 {
                     arrayNumbers[row, column] = generator.Next(MINRANDNUMBER, MAXRANDNUMBER);
-                    //Console.Write(arrayNumbers[row, column]);
+                    Console.Write(arrayNumbers[row, column] + "\t");
                 }
+                Console.WriteLine();
             }
-            Console.Write(arrayNumbers[0, 0]);
-            Console.Write(",");
-            Console.Write(arrayNumbers[0, 1]);
-            Console.Write(",");
-            Console.Write(arrayNumbers[0, 2]);
             Console.WriteLine();
-            Console.Write(arrayNumbers[1, 0]);
-            Console.Write(",");
-            Console.Write(arrayNumbers[1, 1]);
-            Console.Write(",");
-            Console.Write(arrayNumbers[1, 2]);
-            Console.WriteLine();
-            Console.Write(arrayNumbers[2, 0]);
-            Console.Write(",");
-            Console.Write(arrayNumbers[2, 1]);
-            Console.Write(",");
-            Console.Write(arrayNumbers[2, 2]);
-            Console.WriteLine("\n");
 
             Console.WriteLine("Wager for the Sloth Machine above is $3");
             Console.WriteLine("Enter 1 to make a wager, 0 to quit");
