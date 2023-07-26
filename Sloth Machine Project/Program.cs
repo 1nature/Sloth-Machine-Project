@@ -16,9 +16,9 @@
             int wager = 3;
             int[,] arrayNumbers = new int[NUMBEROFROWS, NUMBEROFCOLUMNS];
 
-            for (int row = 0; row < NUMBEROFROWS; row++)
+            for (int row = 0; row < arrayNumbers.GetLength(0); row++)
             {
-                for (int column = 0; column < NUMBEROFCOLUMNS; column++)
+                for (int column = 0; column < arrayNumbers.GetLength(1); column++)
                 {
                     arrayNumbers[row, column] = generator.Next(MINRANDNUMBER, MAXRANDNUMBER);
                     Console.Write(arrayNumbers[row, column] + "\t");
