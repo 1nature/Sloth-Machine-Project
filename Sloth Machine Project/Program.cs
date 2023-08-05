@@ -113,6 +113,8 @@
                                 wagerLoss--;
                                 Console.WriteLine($"Your wager has decreased to: ${wagerLoss}");
                             }
+                            remainingAttempts--;
+                            Console.WriteLine($"Remaining attempts = {remainingAttempts}");
                         }
                     }
                 }
