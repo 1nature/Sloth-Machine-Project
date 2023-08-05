@@ -19,7 +19,6 @@
             int numberOfAttempts = 3;
             int remainingAttempts = 3;
             int wagerDecision;
-            bool keepPlaying = true;
 
             int[,] arrayNumbers = new int[NUMBEROFROWS, NUMBEROFCOLUMNS];
 
@@ -34,17 +33,13 @@
                 Console.WriteLine();
             }
             Console.WriteLine();
-            
+
             int numberOfIteration = 1;
             int counter = 0;
-            int[] midRowTracker = new int [3];
+            int[] midRowTracker = new int[3];
             int[] wrongCombination = new int[3];
 
-            //Console.WriteLine("Wager for the Slot Machine above is $3");
-            //Console.WriteLine("Enter 1 to make a wager, 0 to quit");
-            //Console.WriteLine();
-
-            while (keepPlaying)
+            while (true)
             {
                 for (int tries = 0; tries < numberOfAttempts; tries++)
                 {
@@ -113,122 +108,20 @@
                                 wagerLoss--;
                                 Console.WriteLine($"Your wager has decreased to: ${wagerLoss}");
                             }
-                            remainingAttempts--;
-                            Console.WriteLine($"Remaining attempts = {remainingAttempts}");
+
                         }
                     }
+                    remainingAttempts--;
+                    Console.WriteLine($"Remaining attempts = {remainingAttempts}");
                 }
 
+                if (remainingAttempts == 0)
+                {
+                    break;
+                }
             }
+            Console.WriteLine("End of the game");
             Console.WriteLine("\n");
-
-            
-
-
-
-            //implementation of middle column
-            //for (int currentColumnIndex = 0; currentColumnIndex < numberOfIteration; currentColumnIndex++)
-            //{
-            //    Console.WriteLine(arrayNumbers[0, currentColumnIndex + 1] + "\n");
-
-            //}
-
-
-            //for (int i = 0; i < NUMBEROFCOLUMNS; i++)
-            //{
-            //    Console.WriteLine();
-            //}
-
-
-
-
-
-            //    Console.WriteLine("Wager for the Slot Machine above is $3");
-            //    Console.WriteLine("Enter 1 to make a wager, 0 to quit");
-            //    Console.WriteLine();
-
-            //    while (keepPlaying)
-            //    {
-            //        for (int tries = 0; tries < numberOfAttempts; tries++)
-            //        {
-            //            wagerDecision = int.Parse(Console.ReadLine());
-            //            Console.WriteLine();
-
-            //            if (wagerDecision == 0)
-            //            {
-            //                Console.WriteLine("You have decided to quit this game");
-            //                break;
-            //            }
-
-            //            else if (wagerDecision == 1)
-            //            {
-            //                //for the horizontal combination
-
-
-
-
-
-
-
-            //                if (arrayNumbers[0, 0] == arrayNumbers[0, 1] && arrayNumbers[0, 0] == arrayNumbers[0, 2])
-            //                {
-            //                    Console.WriteLine($"Your wager produced: {arrayNumbers[0, 0]}, {arrayNumbers[0, 1]}, {arrayNumbers[0, 2]}");
-            //                    Console.WriteLine("You win $1");
-            //                    wager++;
-            //                    Console.WriteLine($"Your wager has increased to: ${wager}");
-            //                }
-
-            //                else if (arrayNumbers[1, 0] == arrayNumbers[1, 1] && arrayNumbers[1, 0] == arrayNumbers[1, 2])
-            //                {
-            //                    Console.WriteLine($"Your wager produced: {arrayNumbers[1, 0]}, {arrayNumbers[1, 1]}, {arrayNumbers[1, 2]}");
-            //                    Console.WriteLine("You win $1");
-            //                    wager++;
-            //                    Console.WriteLine($"Your wager has increased to: ${wager}");
-            //                }
-
-            //                else if (arrayNumbers[2, 0] == arrayNumbers[2, 1] && arrayNumbers[2, 0] == arrayNumbers[2, 2])
-            //                {
-            //                    Console.WriteLine($"Your wager produced: {arrayNumbers[2, 0]}, {arrayNumbers[2, 1]}, {arrayNumbers[2, 2]}");
-            //                    Console.WriteLine("You win $1");
-            //                    wager++;
-            //                    Console.WriteLine($"Your wager has increased to: ${wager}");
-            //                }
-
-            //                //for the diagonal combination
-            //                else if (arrayNumbers[0, 0] == arrayNumbers[1, 1] && arrayNumbers[0, 0] == arrayNumbers[2, 2])
-            //                {
-            //                    Console.WriteLine($"Your wager produced: {arrayNumbers[0, 0]}, {arrayNumbers[1, 1]}, {arrayNumbers[2, 2]}");
-            //                    Console.WriteLine("You win $1");
-            //                    wager++;
-            //                    Console.WriteLine($"Your wager has increased to: ${wager}");
-            //                }
-
-            //                else if (arrayNumbers[2, 0] == arrayNumbers[1, 1] && arrayNumbers[2, 0] == arrayNumbers[0, 2])
-            //                {
-            //                    Console.WriteLine($"Your wager produced: {arrayNumbers[2, 0]}, {arrayNumbers[1, 1]}, {arrayNumbers[0, 2]}");
-            //                    Console.WriteLine("You win $1");
-            //                    wager++;
-            //                    Console.WriteLine($"Your wager has increased to: ${wager}");
-            //                }
-
-            //                else
-            //                {
-            //                    Console.WriteLine("Your attempt has not produced a winning combination. Please try again");
-            //                    wagerLoss--;
-            //                    Console.WriteLine($"Your wager has decreased to: ${wagerLoss}");
-            //                }
-            //                remainingAttempts--;
-            //                Console.WriteLine($"Remaining attempts = {remainingAttempts}");
-            //            }
-            //        }
-
-            //        if (remainingAttempts == wagerLoss || wager == 6)
-            //        {
-            //            break;
-            //        }
-            //    }
-
-            //    Console.WriteLine("End of the game");
         }
     }
 
