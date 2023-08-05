@@ -38,8 +38,9 @@
             int counter = 0;
             int[] midRowTracker = new int[3];
             int[] wrongCombination = new int[3];
+            bool keepPlaying = true;
 
-            while (true)
+            while (keepPlaying)
             {
                 for (int tries = 0; tries < numberOfAttempts; tries++)
                 {
@@ -52,6 +53,7 @@
 
                     if (wagerDecision == 0)
                     {
+                        keepPlaying = false;
                         Console.WriteLine("You have decided to quit this game");
                         break;
                     }
@@ -121,7 +123,7 @@
                 }
             }
             Console.WriteLine("End of the game");
-            Console.WriteLine("\n");
+            //Console.WriteLine("\n");
         }
     }
 
