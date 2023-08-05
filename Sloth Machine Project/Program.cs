@@ -123,7 +123,7 @@
                 }
             }
             Console.WriteLine("End of the game");
-            //Console.WriteLine("\n");
+            Console.WriteLine("\n");
         }
     }
 
