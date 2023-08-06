@@ -27,7 +27,7 @@
                 for (int column = 0; column < arrayNumbers.GetLength(1); column++)
                 {
                     arrayNumbers[row, column] = generator.Next(MINRANDNUMBER, MAXRANDNUMBER);
-                    Console.Write(arrayNumbers[row, column] + "\t");
+                    Console.Write(arrayNumbers[row, column] + "\t"); //just for checks
 
                 }
                 Console.WriteLine();
