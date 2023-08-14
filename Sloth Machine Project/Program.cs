@@ -6,7 +6,7 @@
         const int MAXRANDNUMBER = 20;
         const int NUMBEROFROWS = 3;
         const int NUMBEROFCOLUMNS = 3;
-        const int MAXCOUNTER = 2;
+        const int ZERO = 0;
 
         public static readonly Random generator = new Random();
 
@@ -34,11 +34,11 @@
             }
             Console.WriteLine();
 
-            int numberOfIteration = 1;
-            int counter = 0;
-            int[] midRowTracker = new int[3];
-            int[] wrongCombination = new int[3];
+            int rowCounter = 0;
+            int columnCounter = 0;
             bool keepPlaying = true;
+            int numberOfRows = arrayNumbers.GetLength(0);
+            int numberOfCols = arrayNumbers.GetLength(1);
 
             while (keepPlaying)
             {
@@ -60,71 +60,59 @@
 
                     else if (wagerDecision == 1)
                     {
-                        //implmentation for middle row
-                        for (int currentRowIndex = 0; currentRowIndex < numberOfIteration; currentRowIndex++)
+                        //implmentation for rows
+                        for (int rowIndex = 0; rowIndex < numberOfRows; rowIndex++)
                         {
-
-                            if (arrayNumbers[1, currentRowIndex] == arrayNumbers[1, currentRowIndex + 1])
+                            for (int columnIndex = 0; columnIndex < numberOfCols; columnIndex++)
                             {
-                                midRowTracker[0] = arrayNumbers[1, currentRowIndex];
-                                midRowTracker[1] = arrayNumbers[1, currentRowIndex + 1];
-                                counter++;
-                            }
-
-                            if (arrayNumbers[1, currentRowIndex + 1] == arrayNumbers[1, currentRowIndex] + 2)
-                            {
-                                midRowTracker[2] = arrayNumbers[1, currentRowIndex + 2];
-                                counter++;
-                            }
-
-                            if (counter == MAXCOUNTER)
-                            {
-                                Console.WriteLine("You have produced a winning combination as shown below");
-
-                                foreach (int rowNumber in midRowTracker)
+                                if (arrayNumbers[rowIndex, 0] == arrayNumbers[rowIndex, columnIndex])
                                 {
-                                    Console.Write(rowNumber + "\t");
+                                    rowCounter++;
                                 }
-                                Console.WriteLine("\n");
-                                Console.WriteLine("You win $1");
-                                wager++;
-                                Console.WriteLine($"Your wager has increased to: ${wager}");
                             }
 
-                            else
+                        }
+
+                        //implementation for columns
+                        for (int rowIndex = 0; rowIndex < numberOfRows; rowIndex++)
+                        {
+                            for (int columnIndex = 0; columnIndex < numberOfCols; columnIndex++)
                             {
-                                wrongCombination[0] = arrayNumbers[1, currentRowIndex];
-                                wrongCombination[1] = arrayNumbers[1, currentRowIndex + 1];
-                                wrongCombination[2] = arrayNumbers[1, currentRowIndex + 2];
-
-                                Console.WriteLine("Your attempt has produced: ");
-
-                                foreach (int number in wrongCombination)
+                                if (arrayNumbers[columnIndex, 0] == arrayNumbers[rowIndex, columnIndex])
                                 {
-                                    Console.Write(number + "\t");
-
+                                    columnCounter++;
                                 }
-                                Console.WriteLine("\n");
-
-                                Console.WriteLine("It is not a winning combination");
-                                wagerLoss--;
-                                Console.WriteLine($"Your wager has decreased to: ${wagerLoss}");
                             }
+                        }
 
+
+                        if (rowCounter == 1 || columnCounter == 1)
+                        {
+                            Console.WriteLine("You have produced at least one winning combination");
+                            Console.WriteLine("You win $1");
+                            wager++;
+                            Console.WriteLine($"Your wager has increased to: ${wager}");
+                        }
+
+                        else
+                        {
+                            Console.WriteLine("You have not produced a winning combination");
+                            wager--;
+                            Console.WriteLine($"Your wager has reduced to: ${wager}");
                         }
                     }
                     remainingAttempts--;
                     Console.WriteLine($"Remaining attempts = {remainingAttempts}");
                 }
+                
 
-                if (remainingAttempts == 0)
+                if (remainingAttempts == ZERO || wager == ZERO)
                 {
                     break;
                 }
             }
             Console.WriteLine("End of the game");
-            Console.WriteLine("\n");
+            //Console.ReadKey();
         }
     }
-
 }
