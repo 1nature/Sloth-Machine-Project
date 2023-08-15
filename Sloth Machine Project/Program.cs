@@ -7,18 +7,13 @@
         const int NUMBEROFROWS = 3;
         const int NUMBEROFCOLUMNS = 3;
         const int ZERO = 0;
+        const int NUMBEROFATTEMPTS = 3;
 
         public static readonly Random generator = new Random();
 
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to the slot machine game\n");
-
-            int wager = 3; //Dollar amount
-            int wagerLoss = 3; //Dollar amount
-            int numberOfAttempts = 3;
-            int remainingAttempts = 3;
-            int wagerDecision;
 
             int[,] arrayNumbers = new int[NUMBEROFROWS, NUMBEROFCOLUMNS];
 
@@ -35,17 +30,21 @@
                 Console.WriteLine(arrayNumbers[row, 0]);
             }
             Console.WriteLine();
-            
 
+            int wager = 3; //Dollar amount
+            int wagerLoss = 3; //Dollar amount
+            int remainingAttempts = 3;
+            int wagerDecision;
             int rowCounter = 0;
             int columnCounter = 0;
             bool keepPlaying = true;
             int numberOfRows = arrayNumbers.GetLength(0);
             int numberOfCols = arrayNumbers.GetLength(1);
+            bool lineMatch;
 
             while (keepPlaying)
             {
-                for (int tries = 0; tries < numberOfAttempts; tries++)
+                for (int tries = 0; tries < NUMBEROFATTEMPTS; tries++)
                 {
                     Console.WriteLine();
                     Console.WriteLine("**************************************");
@@ -68,8 +67,14 @@
                         {
                             for (int columnIndex = 0; columnIndex < numberOfCols; columnIndex++)
                             {
-                                if (arrayNumbers[rowIndex, 0] == arrayNumbers[rowIndex, columnIndex])
+                                if (arrayNumbers[rowIndex, 0] != arrayNumbers[rowIndex, columnIndex])
                                 {
+                                    lineMatch = false;
+                                }
+
+                                else
+                                {
+                                    lineMatch = true;
                                     rowCounter++;
                                 }
                             }
@@ -81,13 +86,18 @@
                         {
                             for (int columnIndex = 0; columnIndex < numberOfCols; columnIndex++)
                             {
-                                if (arrayNumbers[columnIndex, 0] == arrayNumbers[rowIndex, columnIndex])
+                                if (arrayNumbers[columnIndex, 0] != arrayNumbers[rowIndex, columnIndex])
                                 {
-                                    columnCounter++;
+                                    lineMatch = false;
+                                }
+
+                                else
+                                {
+                                    lineMatch = true;
+                                    rowCounter++;
                                 }
                             }
                         }
-
 
                         if (rowCounter == 1 || columnCounter == 1)
                         {
