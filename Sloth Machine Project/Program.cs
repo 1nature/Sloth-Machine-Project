@@ -31,8 +31,11 @@
 
                 }
                 Console.WriteLine();
+                Console.WriteLine();
+                Console.WriteLine(arrayNumbers[row, 0]);
             }
             Console.WriteLine();
+            
 
             int rowCounter = 0;
             int columnCounter = 0;
