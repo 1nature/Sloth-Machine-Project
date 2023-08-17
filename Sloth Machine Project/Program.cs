@@ -1,4 +1,6 @@
-﻿namespace Sloth_Machine_Project
+﻿using System;
+
+namespace Sloth_Machine_Project
 {
     internal class Program
     {
@@ -8,6 +10,9 @@
         const int NUMBEROFCOLUMNS = 3;
         const int ZERO = 0;
         const int NUMBEROFATTEMPTS = 3;
+        const int BETWIN = 1;
+        const int BETLOSS = 1;
+        const int ONE = 1;
 
         public static readonly Random generator = new Random();
 
@@ -26,106 +31,104 @@
 
                 }
                 Console.WriteLine();
-                Console.WriteLine();
-                Console.WriteLine(arrayNumbers[row, 0]);
             }
             Console.WriteLine();
 
             int wager = 3; //Dollar amount
-            int wagerLoss = 3; //Dollar amount
             int remainingAttempts = 3;
-            int wagerDecision;
+            int betDecision;
             int rowCounter = 0;
             int columnCounter = 0;
             bool keepPlaying = true;
             int numberOfRows = arrayNumbers.GetLength(0);
             int numberOfCols = arrayNumbers.GetLength(1);
-            bool lineMatch;
+            bool rowLineMatch = true;
+            double rowBetAmount = 0;
+
 
             while (keepPlaying)
             {
-                for (int tries = 0; tries < NUMBEROFATTEMPTS; tries++)
+                Console.WriteLine();
+                Console.WriteLine("**************************************");
+                Console.WriteLine("Enter 1 to make a bet, 0 to quit");
+                betDecision = int.Parse(Console.ReadLine());
+                Console.WriteLine();
+
+                if (betDecision == ZERO)
                 {
-                    Console.WriteLine();
-                    Console.WriteLine("**************************************");
-                    Console.WriteLine("Wager for the Slot Machine above is $3");
-                    Console.WriteLine("Enter 1 to make a wager, 0 to quit");
-                    wagerDecision = int.Parse(Console.ReadLine());
-                    Console.WriteLine();
-
-                    if (wagerDecision == 0)
-                    {
-                        keepPlaying = false;
-                        Console.WriteLine("You have decided to quit this game");
-                        break;
-                    }
-
-                    else if (wagerDecision == 1)
-                    {
-                        //implmentation for rows
-                        for (int rowIndex = 0; rowIndex < numberOfRows; rowIndex++)
-                        {
-                            for (int columnIndex = 0; columnIndex < numberOfCols; columnIndex++)
-                            {
-                                if (arrayNumbers[rowIndex, 0] != arrayNumbers[rowIndex, columnIndex])
-                                {
-                                    lineMatch = false;
-                                }
-
-                                else
-                                {
-                                    lineMatch = true;
-                                    rowCounter++;
-                                }
-                            }
-
-                        }
-
-                        //implementation for columns
-                        for (int rowIndex = 0; rowIndex < numberOfRows; rowIndex++)
-                        {
-                            for (int columnIndex = 0; columnIndex < numberOfCols; columnIndex++)
-                            {
-                                if (arrayNumbers[columnIndex, 0] != arrayNumbers[rowIndex, columnIndex])
-                                {
-                                    lineMatch = false;
-                                }
-
-                                else
-                                {
-                                    lineMatch = true;
-                                    rowCounter++;
-                                }
-                            }
-                        }
-
-                        if (rowCounter == 1 || columnCounter == 1)
-                        {
-                            Console.WriteLine("You have produced at least one winning combination");
-                            Console.WriteLine("You win $1");
-                            wager++;
-                            Console.WriteLine($"Your wager has increased to: ${wager}");
-                        }
-
-                        else
-                        {
-                            Console.WriteLine("You have not produced a winning combination");
-                            wager--;
-                            Console.WriteLine($"Your wager has reduced to: ${wager}");
-                        }
-                    }
-                    remainingAttempts--;
-                    Console.WriteLine($"Remaining attempts = {remainingAttempts}");
+                    keepPlaying = false;
+                    Console.WriteLine("You have decided to quit this game");
+                    break;
                 }
-                
 
-                if (remainingAttempts == ZERO || wager == ZERO)
+                else if (betDecision == ONE)
+                {
+                    Console.WriteLine("Please enter the amount you want to bet");
+                    double betAmount = double.Parse(Console.ReadLine());
+                    Console.WriteLine();
+
+                    //implmentation for rows
+                    for (int rowIndex = 0; rowIndex < numberOfRows; rowIndex++)
+                    {
+                        for (int columnIndex = 0; columnIndex < numberOfCols; columnIndex++)
+                        {
+                            if (arrayNumbers[rowIndex, 0] != arrayNumbers[rowIndex, columnIndex])
+                            {
+                                rowLineMatch = false;
+                            }
+
+                            else
+                            {
+                                rowLineMatch = true;
+                            }
+                        }
+
+                        if (rowLineMatch)
+                        {
+                            rowCounter++;
+                        }
+                    }
+
+                    if (rowCounter >= ONE)
+                    {
+                        rowBetAmount = betAmount + BETWIN;
+                        Console.WriteLine("You have produced at least a winning row combination");
+                        Console.WriteLine($"Your wager has increased to: ${rowBetAmount}");
+                    }
+
+                    else
+                    {
+                        rowBetAmount = betAmount - BETLOSS;
+                        Console.WriteLine("You have not produced a winning row combination");
+                        Console.WriteLine($"Your bet amount has reduced to: ${rowBetAmount}");
+                    }
+                }
+                remainingAttempts--;
+                Console.WriteLine($"Your remaining attempt(s) = {remainingAttempts}");
+
+                if (remainingAttempts == ZERO)
                 {
                     break;
                 }
             }
-            Console.WriteLine("End of the game");
-            //Console.ReadKey();
+
+            //this is embarrassing but the I can't get this code to playAgain!
+            Console.WriteLine();
+            Console.WriteLine("Enter 1 if you would like to play again, enter 0 to quit the game");
+            int playAgain = int.Parse(Console.ReadLine());
+
+            if (playAgain == ZERO)
+            {
+                keepPlaying = false;
+            }
+
+            else if (playAgain == ONE)
+            {
+                keepPlaying = true;
+                remainingAttempts = 3;
+            }
         }
+
     }
+
 }
