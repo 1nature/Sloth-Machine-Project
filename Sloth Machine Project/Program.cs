@@ -12,6 +12,7 @@
         const int BETLOSS = 1;
         const int ONE = 1;
 
+        //what is the meaning of public static?
         public static readonly Random generator = new Random();
 
         static void Main(string[] args)
