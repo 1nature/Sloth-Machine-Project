@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Sloth_Machine_Project
+﻿namespace Sloth_Machine_Project
 {
     internal class Program
     {
