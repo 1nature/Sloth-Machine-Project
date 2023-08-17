@@ -87,7 +87,7 @@
                         }
                     }
 
-                    if (rowCounter >= 1)
+                    if (rowCounter >= ONE)
                     {
                         rowBetAmount = betAmount + BETWIN;
                         Console.WriteLine("You have produced at least a winning row combination");
