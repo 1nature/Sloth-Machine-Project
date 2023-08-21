@@ -2,14 +2,14 @@
 {
     internal class Program
     {
-        const int MINRANDNUMBER = 0;
-        const int MAXRANDNUMBER = 20;
-        const int NUMBEROFROWS = 3;
-        const int NUMBEROFCOLUMNS = 3;
+        const int MIN_RAND_NUMBER = 0;
+        const int MAX_RAND_NUMBER = 20;
+        const int NUMBER_OF_ROWS = 3;
+        const int NUMBER_OF_COLUMNS = 3;
         const int ZERO = 0;
-        const int NUMBEROFATTEMPTS = 3;
-        const int BETWIN = 1;
-        const int BETLOSS = 1;
+        const int NUMBER_OF_ATTEMPTS = 3;
+        const int BET_WIN = 1;
+        const int BET_LOSS = 1;
         const int ONE = 1;
 
         //what is the meaning of public static?
@@ -19,13 +19,13 @@
         {
             Console.WriteLine("Welcome to the slot machine game\n");
 
-            int[,] arrayNumbers = new int[NUMBEROFROWS, NUMBEROFCOLUMNS];
+            int[,] arrayNumbers = new int[NUMBER_OF_ROWS, NUMBER_OF_COLUMNS];
 
             for (int row = 0; row < arrayNumbers.GetLength(0); row++)
             {
                 for (int column = 0; column < arrayNumbers.GetLength(1); column++)
                 {
-                    arrayNumbers[row, column] = generator.Next(MINRANDNUMBER, MAXRANDNUMBER + 1);
+                    arrayNumbers[row, column] = generator.Next(MIN_RAND_NUMBER, MAX_RAND_NUMBER + 1);
                     Console.Write(arrayNumbers[row, column] + "\t"); //just for checks
 
                 }
@@ -90,14 +90,14 @@
 
                     if (rowCounter >= ONE)
                     {
-                        rowBetAmount = betAmount + BETWIN;
+                        rowBetAmount = betAmount + BET_WIN;
                         Console.WriteLine("You have produced at least a winning row combination");
                         Console.WriteLine($"Your wager has increased to: ${rowBetAmount}");
                     }
 
                     else
                     {
-                        rowBetAmount = betAmount - BETLOSS;
+                        rowBetAmount = betAmount - BET_LOSS;
                         Console.WriteLine("You have not produced a winning row combination");
                         Console.WriteLine($"Your bet amount has reduced to: ${rowBetAmount}");
                     }
@@ -124,7 +124,7 @@
             else if (playAgain == ONE)
             {
                 keepPlaying = true; //there is an error if keepPlaying is not assigned to true
-                remainingAttempts = NUMBEROFATTEMPTS;
+                remainingAttempts = NUMBER_OF_ATTEMPTS;
             }
         }
 
