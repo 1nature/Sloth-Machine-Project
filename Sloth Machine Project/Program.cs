@@ -123,8 +123,8 @@
 
             else if (playAgain == ONE)
             {
-                keepPlaying = true;
-                remainingAttempts = 3;
+                keepPlaying = true; //there is an error if keepPlaying is not assigned to true
+                remainingAttempts = NUMBEROFATTEMPTS;
             }
         }
 
