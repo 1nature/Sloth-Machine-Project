@@ -6,11 +6,11 @@
         const int MAX_RAND_NUMBER = 20;
         const int NUMBER_OF_ROWS = 3;
         const int NUMBER_OF_COLUMNS = 3;
-        const int ZERO = 0;
         const int NUMBER_OF_ATTEMPTS = 3;
         const int BET_WIN = 1;
         const int BET_LOSS = 1;
-        const int ONE = 1;
+        const int USER_CHOICE_YES = 1;
+        const int USER_CHOICE_NO = 0;
 
         //what is the meaning of public static?
         public static readonly Random generator = new Random();
@@ -53,14 +53,14 @@
                 betDecision = int.Parse(Console.ReadLine());
                 Console.WriteLine();
 
-                if (betDecision == ZERO)
+                if (betDecision == USER_CHOICE_NO)
                 {
                     keepPlaying = false;
                     Console.WriteLine("You have decided to quit this game");
                     break;
                 }
 
-                else if (betDecision == ONE)
+                else if (betDecision == USER_CHOICE_YES)
                 {
                     Console.WriteLine("Please enter the amount you want to bet");
                     double betAmount = double.Parse(Console.ReadLine());
@@ -88,7 +88,7 @@
                         }
                     }
 
-                    if (rowCounter >= ONE)
+                    if (rowCounter >= 1)
                     {
                         rowBetAmount = betAmount + BET_WIN;
                         Console.WriteLine("You have produced at least a winning row combination");
@@ -105,7 +105,7 @@
                 remainingAttempts--;
                 Console.WriteLine($"Your remaining attempt(s) = {remainingAttempts}");
 
-                if (remainingAttempts == ZERO)
+                if (remainingAttempts == 0)
                 {
                     break;
                 }
@@ -116,12 +116,12 @@
             Console.WriteLine("Enter 1 if you would like to play again, enter 0 to quit the game");
             int playAgain = int.Parse(Console.ReadLine());
 
-            if (playAgain == ZERO)
+            if (playAgain == USER_CHOICE_NO)
             {
                 keepPlaying = false;
             }
 
-            else if (playAgain == ONE)
+            else if (playAgain == USER_CHOICE_YES)
             {
                 keepPlaying = true; //there is an error if keepPlaying is not assigned to true
                 remainingAttempts = NUMBER_OF_ATTEMPTS;
