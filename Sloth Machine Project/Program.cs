@@ -73,12 +73,12 @@
                         {
                             if (arrayNumbers[rowIndex, 0] != arrayNumbers[rowIndex, columnIndex])
                             {
-                                rowLineMatch = false;
+                                rowLineMatch = true;
                             }
 
                             else
                             {
-                                rowLineMatch = true;
+                                rowLineMatch = false;
                             }
                         }
 
