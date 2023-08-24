@@ -9,7 +9,6 @@
         const int MIN_ROWANDCOLUMN_BET = 6;
         const int MIN_ROWONLY_BET = 3;
         const int MIN_COLUMNONLY_BET = 3;
-        const int DIAGONAL_ONE_ONLY_BET = 3;
 
         //what is the meaning of public static?
         public static readonly Random generator = new Random();
