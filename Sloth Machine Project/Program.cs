@@ -199,7 +199,7 @@
                             break;
                         }
 
-                        else if (betAmount >= 3) //$3 for three lines (3 vertical ones)
+                        else if (betAmount >= 3) //$3 for three lines (3 verticals)
                         {
                             for (int rowIndex = 0; rowIndex < numberOfRows; rowIndex++)
                             {
