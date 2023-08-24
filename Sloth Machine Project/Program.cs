@@ -41,7 +41,6 @@
             int numberOfCols = arrayNumbers.GetLength(1);
             bool rowLineMatch = true;
             bool columnLineMatch = true;
-            string playAgainDecision;
 
             Console.WriteLine("There are three horizontal and three vertical lines available to bet on");
             Console.WriteLine("You can make a bet for one line or more. A bet for one line costs $1");
@@ -247,7 +246,6 @@
                     }
 
                     Console.WriteLine("The end of the game");
-
                 }
             }
 
