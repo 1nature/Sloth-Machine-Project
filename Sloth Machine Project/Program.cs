@@ -241,8 +241,6 @@
 
                     }
 
-
-
                     else if (betDecision == 0)
                     {
                         Console.WriteLine("You have decided to quit");
