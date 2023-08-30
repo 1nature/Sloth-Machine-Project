@@ -37,12 +37,6 @@
             Console.WriteLine();
 
             int betDecision;
-            int horizontalRowCounter = 0;
-            int verticalColumnCounter = 0;
-            int diagonalOneCounter = 0;
-            int diagonalTwoCounter = 0;
-            int allRowCounter = 0;
-            int allColumnCounter = 0;
             int numberOfRows = arrayNumbers.GetLength(0);
             int numberOfCols = arrayNumbers.GetLength(1);
             int diagonalLength = 3;
@@ -89,6 +83,8 @@
 
                     if (betLineChoice == "A")
                     {
+                        int allRowCounter = 0;
+                        int allColumnCounter = 0;
                         if (betAmount < MIN_BET_AMOUNT)// $1 per line for six lines (3 horizontals + 3 verticals)
                         {
                             Console.WriteLine("Your bet amount is low");
@@ -152,6 +148,7 @@
 
                     if (betLineChoice == "H")
                     {
+                        int horizontalRowCounter = 0;
                         if (betAmount < MIN_BET_AMOUNT) //$1 per line for three lines (3 horizontals)
                         {
                             Console.WriteLine("Your bet amount is low");
@@ -197,6 +194,7 @@
 
                     if (betLineChoice == "V")
                     {
+                        int verticalColumnCounter = 0;
                         if (betAmount < MIN_BET_AMOUNT) //$1 per line for three lines (3 verticals)
                         {
                             Console.WriteLine("Your bet amount is low");
@@ -238,6 +236,8 @@
 
                     if (betLineChoice == "D")
                     {
+                        int diagonalOneCounter = 0;
+                        int diagonalTwoCounter = 0;
                         if (betAmount < MIN_BET_AMOUNT) //$1 per line for two lines (2 diagonal lines)
                         {
                             Console.WriteLine("Your bet amount is low");
