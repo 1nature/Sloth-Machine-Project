@@ -11,6 +11,10 @@
         const int MIN_ROWONLY_LOSS = 3;
         const int MIN_COLUMNONLY_LOSS = 3;
         const int MIN_DIAGONAL_LOSS = 2;
+        const int BET_DECISION_YES = 1;
+        const int BET_DECISION_NO = 0;
+        const int LINE_MATCH_COUNTER = 1;
+        const int NO_LINE_MATCH_COUNTER = 1;
 
         public static readonly Random generator = new Random();
 
@@ -59,18 +63,18 @@
             betDecision = int.Parse(Console.ReadLine());
             Console.WriteLine();
 
-            if (betDecision == 0)
+            if (betDecision == BET_DECISION_NO)
             {
                 Console.WriteLine("You have decided to quit this game");
             }
 
-            else if (betDecision == 1)
+            else if (betDecision == BET_DECISION_YES)
             {
                 Console.WriteLine();
                 Console.WriteLine("Please enter the dollar amount you want to bet");
                 double betAmount = double.Parse(Console.ReadLine());
 
-                while (betAmount > 1)
+                while (betAmount > MIN_BET_AMOUNT)
                 {
                     Console.WriteLine();
                     Console.WriteLine("**************************************");
@@ -129,14 +133,14 @@
 
                             //winning and losing conditions
                             //using the row and/or column counter to increase or decrease the bet amount
-                            if (allRowCounter >= 1 || allColumnCounter >= 1)
+                            if (allRowCounter >= LINE_MATCH_COUNTER || allColumnCounter >= LINE_MATCH_COUNTER)
                             {
                                 betAmount = betAmount + allRowCounter + allColumnCounter;
                                 Console.WriteLine("You have produced at least a winning row combination");
                                 Console.WriteLine($"Your row and column bet amount has increased to: ${betAmount}");
                             }
 
-                            else if (allRowCounter == 0 && allColumnCounter == 0)
+                            else if (allRowCounter == NO_LINE_MATCH_COUNTER && allColumnCounter == NO_LINE_MATCH_COUNTER)
                             {
                                 betAmount = betAmount - MIN_ROWANDCOLUMN_LOSS;
                                 Console.WriteLine("You have not produced a winning row combination");
@@ -174,7 +178,7 @@
 
                             //winning and losing conditions
                             //using the row and/or column counter to increase or decrease the bet amount
-                            if (horizontalRowCounter >= 1)
+                            if (horizontalRowCounter >= LINE_MATCH_COUNTER)
                             {
                                 betAmount = betAmount + horizontalRowCounter;
                                 Console.WriteLine("You have produced at least a winning row combination");
@@ -218,7 +222,7 @@
                         }
                         //winning and losing conditions
                         //using the row and/or column counter to increase or decrease the bet amount
-                        if (verticalColumnCounter >= 1)
+                        if (verticalColumnCounter >= LINE_MATCH_COUNTER)
                         {
                             betAmount = betAmount + verticalColumnCounter;
                             Console.WriteLine("You have produced at least a winning row combination");
@@ -269,7 +273,7 @@
 
                         //winning and losing conditions
                         //using the diagonal counter to increase or decrease the bet amount
-                        if (diagonalOneCounter == 1 || diagonalTwoCounter == 1)
+                        if (diagonalOneCounter == LINE_MATCH_COUNTER || diagonalTwoCounter == LINE_MATCH_COUNTER)
                         {
                             betAmount = betAmount + diagonalOneCounter + diagonalTwoCounter;
                             Console.WriteLine("You have produced a winning diagonal combination");
