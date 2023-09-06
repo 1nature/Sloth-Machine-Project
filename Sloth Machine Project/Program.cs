@@ -80,73 +80,7 @@
 
                     string betLineChoice = Console.ReadLine().ToUpper();
 
-                    if (betLineChoice == "A")
-                    {
-                        int allRowCounter = 0;
-                        int allColumnCounter = 0;
-                        if (betAmount < MIN_BET_AMOUNT)// $1 per line for six lines (3 horizontals + 3 verticals)
-                        {
-                            Console.WriteLine("Your bet amount is low");
-                            break;
-                        }
-                        else 
-                        {
-                            //implmentation for rows
-                            for (int rowIndex = 0; rowIndex < numberOfRows; rowIndex++)
-                            {
-                                for (int columnIndex = 0; columnIndex < numberOfCols; columnIndex++)
-                                {
-                                    if (arrayNumbers[rowIndex, 0] != arrayNumbers[rowIndex, columnIndex])
-                                    {
-                                        rowLineMatch = false;
-                                    }
-
-                                }
-
-                                if (rowLineMatch)
-                                {
-                                    allRowCounter++;
-                                }
-                            }
-
-                            //implmentation for columns
-                            for (int rowIndex = 0; rowIndex < numberOfRows; rowIndex++)
-                            {
-                                for (int columnIndex = 0; columnIndex < numberOfCols; columnIndex++)
-                                {
-                                    if (arrayNumbers[columnIndex, 0] != arrayNumbers[rowIndex, columnIndex])
-                                    {
-                                        columnLineMatch = false;
-                                    }
-                                }
-
-                                if (columnLineMatch)
-                                {
-                                    allColumnCounter++;
-                                }
-                            }
-
-                            //winning and losing conditions
-                            //using the row and/or column counter to increase or decrease the bet amount
-                            if (allRowCounter >= LINE_MATCH_COUNTER || allColumnCounter >= LINE_MATCH_COUNTER)
-                            {
-                                betAmount = betAmount + allRowCounter + allColumnCounter;
-                                Console.WriteLine("You have produced at least a winning row combination");
-                                Console.WriteLine($"Your row and column bet amount has increased to: ${betAmount}");
-                            }
-
-                            else 
-                            //if (allRowCounter == NO_LINE_MATCH_COUNTER && allColumnCounter == NO_LINE_MATCH_COUNTER)
-                            {
-                                betAmount = betAmount - MIN_ROWANDCOLUMN_LOSS;
-                                Console.WriteLine("You have not produced a winning row combination");
-                                Console.WriteLine($"Your row and column bet amount has reduced to: ${betAmount}");
-                            }
-                        }
-
-                    }
-
-                    if (betLineChoice == "H")
+                    if (betLineChoice == "H" || betLineChoice == "A")
                     {
                         int horizontalRowCounter = 0;
                         if (betAmount < MIN_BET_AMOUNT) //$1 per line for three lines (3 horizontals)
@@ -192,7 +126,7 @@
                         }
                     }
 
-                    if (betLineChoice == "V")
+                    if (betLineChoice == "V" || betLineChoice == "A")
                     {
                         int verticalColumnCounter = 0;
                         if (betAmount < MIN_BET_AMOUNT) //$1 per line for three lines (3 verticals)
@@ -200,7 +134,7 @@
                             Console.WriteLine("Your bet amount is low");
                             break;
                         }
-                        else 
+                        else
                         {
                             for (int rowIndex = 0; rowIndex < numberOfRows; rowIndex++)
                             {
