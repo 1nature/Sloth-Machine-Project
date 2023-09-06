@@ -62,7 +62,7 @@
                 Console.WriteLine("You have decided to quit this game");
             }
 
-            else if (betDecision == BET_DECISION_YES)
+            if (betDecision == BET_DECISION_YES)
             {
                 Console.WriteLine();
                 Console.WriteLine("Please enter the dollar amount you want to bet");
