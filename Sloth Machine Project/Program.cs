@@ -85,7 +85,7 @@
                             Console.WriteLine("Your bet amount is low");
                             break;
                         }
-                        else
+                        if(betAmount >= MIN_BET_AMOUNT)
                         {
                             //implmentation for rows
                             for (int rowIndex = 0; rowIndex < numberOfRows; rowIndex++)
@@ -131,7 +131,7 @@
                             Console.WriteLine("Your bet amount is low");
                             break;
                         }
-                        else
+                        if (betAmount >= MIN_BET_AMOUNT)
                         {
                             for (int rowIndex = 0; rowIndex < numberOfRows; rowIndex++)
                             {
@@ -174,7 +174,7 @@
                             Console.WriteLine("Your bet amount is low");
                             break;
                         }
-                        else
+                        if (betAmount >= MIN_BET_AMOUNT)
                         {
                             //implementation for diagonals
                             for (int diagonalIndex = 0; diagonalIndex < diagonalLength; diagonalIndex++)
