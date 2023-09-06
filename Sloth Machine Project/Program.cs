@@ -14,7 +14,7 @@
         const int BET_DECISION_YES = 1;
         const int BET_DECISION_NO = 0;
         const int LINE_MATCH_COUNTER = 1;
-        const int NO_LINE_MATCH_COUNTER = 1;
+        //const int NO_LINE_MATCH_COUNTER = 1;
 
         public static readonly Random generator = new Random();
 
@@ -136,7 +136,8 @@
                                 Console.WriteLine($"Your row and column bet amount has increased to: ${betAmount}");
                             }
 
-                            else if (allRowCounter == NO_LINE_MATCH_COUNTER && allColumnCounter == NO_LINE_MATCH_COUNTER)
+                            else 
+                            //if (allRowCounter == NO_LINE_MATCH_COUNTER && allColumnCounter == NO_LINE_MATCH_COUNTER)
                             {
                                 betAmount = betAmount - MIN_ROWANDCOLUMN_LOSS;
                                 Console.WriteLine("You have not produced a winning row combination");
