@@ -78,8 +78,7 @@
                         " to bet diagonal lines only. $1 per line");
                     Console.WriteLine();
 
-                    string input = Console.ReadLine();
-                    string betLineChoice = input.ToUpper();
+                    string betLineChoice = Console.ReadLine().ToUpper();
 
                     if (betLineChoice == "A")
                     {
