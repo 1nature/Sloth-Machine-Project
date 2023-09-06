@@ -40,10 +40,7 @@
             int numberOfRows = arrayNumbers.GetLength(0);
             int numberOfCols = arrayNumbers.GetLength(1);
             int diagonalLength = 3;
-            bool rowLineMatch = true;
-            bool columnLineMatch = true;
-            bool diagonalOneLineMatch = true;
-            bool diagonalTwoLineMatch = true;
+            bool lineMatch = true;
 
             Console.WriteLine("There are three horizontal and three vertical lines available to bet on");
             Console.WriteLine("You can make a bet for one line or more. A bet for one line costs $1");
@@ -97,11 +94,11 @@
                                 {
                                     if (arrayNumbers[rowIndex, 0] != arrayNumbers[rowIndex, columnIndex])
                                     {
-                                        rowLineMatch = false;
+                                        lineMatch = false;
                                     }
                                 }
 
-                                if (rowLineMatch)
+                                if (lineMatch)
                                 {
                                     horizontalRowCounter++;
                                 }
@@ -142,11 +139,11 @@
                                 {
                                     if (arrayNumbers[columnIndex, 0] != arrayNumbers[rowIndex, columnIndex])
                                     {
-                                        columnLineMatch = false;
+                                        lineMatch = false;
                                     }
                                 }
 
-                                if (columnLineMatch)
+                                if (lineMatch)
                                 {
                                     verticalColumnCounter++;
                                 }
@@ -184,20 +181,20 @@
                             {
                                 if (arrayNumbers[diagonalIndex, diagonalIndex] != arrayNumbers[diagonalIndex, diagonalIndex])
                                 {
-                                    diagonalOneLineMatch = false;
+                                    lineMatch = false;
                                 }
 
                                 if (arrayNumbers[diagonalIndex, 2 - diagonalIndex] != arrayNumbers[diagonalIndex, 2 - diagonalIndex])
                                 {
-                                    diagonalTwoLineMatch = false;
+                                    lineMatch = false;
                                 }
                                 
-                                if (diagonalOneLineMatch)
+                                if (lineMatch)
                                 {
                                     diagonalOneCounter++;
                                 }
 
-                                if (diagonalTwoLineMatch)
+                                if (lineMatch)
                                 {
                                     diagonalTwoCounter++;
                                 }
