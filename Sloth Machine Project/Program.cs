@@ -27,12 +27,9 @@
                 for (int column = 0; column < arrayNumbers.GetLength(1); column++)
                 {
                     arrayNumbers[row, column] = generator.Next(MIN_RAND_NUMBER, MAX_RAND_NUMBER + 1);
-                    Console.Write(arrayNumbers[row, column] + "\t"); //just for checks
-
+                    //Console.Write(arrayNumbers[row, column] + "\t"); //just for checks
                 }
-                Console.WriteLine();
             }
-            Console.WriteLine();
 
             int betDecision;
             int numberOfRows = arrayNumbers.GetLength(0);
@@ -83,7 +80,6 @@
                             Console.WriteLine("Your bet amount is low");
                             break;
                         }
-                        //if(betAmount >= MIN_BET_AMOUNT)
 
                         //implmentation for rows
                         for (int rowIndex = 0; rowIndex < numberOfRows; rowIndex++)
@@ -120,17 +116,21 @@
 
                     }
 
+                    Console.WriteLine();
+                    for (int row = 0; row < arrayNumbers.GetLength(0); row++)
+                    {
+                        for (int column = 0; column < arrayNumbers.GetLength(1); column++)
+                        {
+                            arrayNumbers[row, column] = generator.Next(MIN_RAND_NUMBER, MAX_RAND_NUMBER + 1);
+                            //Console.Write(arrayNumbers[row, column] + "\t"); //just for checks
+
+                        }
+                    }
 
                     if (betLineChoice == "V" || betLineChoice == "A")
                     {
                         int verticalColumnCounter = 0;
-                        //if (betAmount < MIN_BET_AMOUNT) //$1 per line for three lines (3 verticals)
-                        //{
-                        //    Console.WriteLine("Your bet amount is low");
-                        //    break;
-                        //}
-                        //if (betAmount >= MIN_BET_AMOUNT)
-                        //{
+
                         for (int rowIndex = 0; rowIndex < numberOfRows; rowIndex++)
                         {
                             for (int columnIndex = 0; columnIndex < numberOfCols; columnIndex++)
@@ -146,7 +146,7 @@
                                 verticalColumnCounter++;
                             }
                         }
-                        //}
+                        
                         //winning and losing conditions
                         //using the row and/or column counter to increase or decrease the bet amount
                         if (verticalColumnCounter >= LINE_MATCH_COUNTER)
@@ -163,18 +163,22 @@
                         }
                     }
 
+                    Console.WriteLine();
+                    for (int row = 0; row < arrayNumbers.GetLength(0); row++)
+                    {
+                        for (int column = 0; column < arrayNumbers.GetLength(1); column++)
+                        {
+                            arrayNumbers[row, column] = generator.Next(MIN_RAND_NUMBER, MAX_RAND_NUMBER + 1);
+                            //Console.Write(arrayNumbers[row, column] + "\t"); //just for checks
+
+                        }
+                    }
+
                     if (betLineChoice == "D")
                     {
                         int diagonalOneCounter = 0;
                         int diagonalTwoCounter = 0;
-                        //if (betAmount < MIN_BET_AMOUNT) //$1 per line for two lines (2 diagonal lines)
-                        //{
-                        //    Console.WriteLine("Your bet amount is low");
-                        //    break;
-                        //}
-                        //if (betAmount >= MIN_BET_AMOUNT)
-                        //{
-                        //implementation for diagonals
+                        
                         for (int diagonalIndex = 0; diagonalIndex < diagonalLength; diagonalIndex++)
                         {
                             if (arrayNumbers[diagonalIndex, diagonalIndex] != arrayNumbers[diagonalIndex, diagonalIndex])
@@ -198,8 +202,6 @@
                                 diagonalTwoCounter++;
                             }
                         }
-
-                        //}
 
                         //winning and losing conditions
                         //using the diagonal counter to increase or decrease the bet amount
