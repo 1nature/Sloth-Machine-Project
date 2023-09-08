@@ -7,14 +7,12 @@
         const int NUMBER_OF_ROWS = 3;
         const int MIN_BET_AMOUNT = 1;
         const int NUMBER_OF_COLUMNS = 3;
-        const int MIN_ROWANDCOLUMN_LOSS = 6;
         const int MIN_ROWONLY_LOSS = 3;
         const int MIN_COLUMNONLY_LOSS = 3;
         const int MIN_DIAGONAL_LOSS = 2;
         const int BET_DECISION_YES = 1;
         const int BET_DECISION_NO = 0;
         const int LINE_MATCH_COUNTER = 1;
-        //const int NO_LINE_MATCH_COUNTER = 1;
 
         public static readonly Random generator = new Random();
 
@@ -184,15 +182,16 @@
                                     lineMatch = false;
                                 }
 
+                                if (lineMatch)
+                                {
+                                    diagonalOneCounter++;
+                                }
+
                                 if (arrayNumbers[diagonalIndex, 2 - diagonalIndex] != arrayNumbers[diagonalIndex, 2 - diagonalIndex])
                                 {
                                     lineMatch = false;
                                 }
                                 
-                                if (lineMatch)
-                                {
-                                    diagonalOneCounter++;
-                                }
 
                                 if (lineMatch)
                                 {
