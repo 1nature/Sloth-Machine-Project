@@ -36,6 +36,7 @@
             int numberOfCols = arrayNumbers.GetLength(1);
             int diagonalLength = 3;
             bool lineMatch = true;
+            bool keepPlaying = true;
 
             Console.WriteLine("There are three horizontal and three vertical lines available to bet on");
             Console.WriteLine("You can make a bet for one line or more. A bet for one line costs $1");
@@ -49,10 +50,8 @@
             betDecision = int.Parse(Console.ReadLine());
             Console.WriteLine();
             
-            bool keepPlaying = true;
             while (keepPlaying)
             {
-
                 if (betDecision == BET_DECISION_NO)
                 {
                     Console.WriteLine("You have decided to quit this game");
@@ -61,9 +60,24 @@
                 if (betDecision == BET_DECISION_YES)
                 {
                     Console.WriteLine();
+                    bool valid = false;
                     Console.WriteLine("Please enter the dollar amount you want to bet");
                     double betAmount = double.Parse(Console.ReadLine());
+                    while (!valid)
+                    {
+                        if (betAmount < MIN_BET_AMOUNT) //$1 per line for three lines (3 horizontals)
+                        {
+                            Console.WriteLine("Please enter a higher bet amount");
+                            betAmount = double.Parse(Console.ReadLine());
+                        }
 
+                        else
+                        {
+                            valid = true;
+                        }
+
+                    }
+                    
                     while (betAmount > MIN_BET_AMOUNT)
                     {
                         Console.WriteLine();
@@ -79,11 +93,6 @@
                         if (betLineChoice == "H" || betLineChoice == "A")
                         {
                             int horizontalRowCounter = 0;
-                            if (betAmount < MIN_BET_AMOUNT) //$1 per line for three lines (3 horizontals)
-                            {
-                                Console.WriteLine("Your bet amount is low");
-                                break;
-                            }
 
                             //implmentation for rows
                             for (int rowIndex = 0; rowIndex < numberOfRows; rowIndex++)
@@ -222,9 +231,8 @@
                                 Console.WriteLine($"Your diagonal only bet amount has reduced to: ${betAmount}");
                             }
                         }
-
-                        
                     }
+
                     if (betAmount < MIN_BET_AMOUNT)
                     {
                         Console.WriteLine("Enter 'YES' to play again, or 'N0' to quit");
@@ -232,34 +240,17 @@
 
                         if (playAgain == "NO")
                         {
-                            keepPlaying = false;
                             betDecision = BET_DECISION_NO;
                             Console.WriteLine("You have chosen not to play again");
-                            //break;
+                            break;
                         }
 
                         else
                         {
-                            //keepPlaying = true;
                             betDecision = BET_DECISION_YES;
-                            //string newBet = betLineChoice;
-                            //double newBetAmount = betAmount;
-
-                            //betLineChoice = Console.ReadLine().ToUpper();
                         }
-                        //Console.WriteLine("You do not have adequate bet amount left");
-
                     }
-
-
                 }
-                
-
-                //if (betAmount < MIN_BET_AMOUNT)
-                //{
-                //    Console.WriteLine("You do not have adequate bet amount left");
-                //}
-
             }
             Console.WriteLine("The end of the game");
         }
