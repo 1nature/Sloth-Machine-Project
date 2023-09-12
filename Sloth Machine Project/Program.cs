@@ -22,14 +22,14 @@
 
             int[,] arrayNumbers = new int[NUMBER_OF_ROWS, NUMBER_OF_COLUMNS];
 
-            for (int row = 0; row < arrayNumbers.GetLength(0); row++)
-            {
-                for (int column = 0; column < arrayNumbers.GetLength(1); column++)
-                {
-                    arrayNumbers[row, column] = generator.Next(MIN_RAND_NUMBER, MAX_RAND_NUMBER + 1);
-                    //Console.Write(arrayNumbers[row, column] + "\t"); //just for checks
-                }
-            }
+            //for (int row = 0; row < arrayNumbers.GetLength(0); row++)
+            //{
+            //    for (int column = 0; column < arrayNumbers.GetLength(1); column++)
+            //    {
+            //        arrayNumbers[row, column] = generator.Next(MIN_RAND_NUMBER, MAX_RAND_NUMBER + 1);
+            //        Console.Write(arrayNumbers[row, column] + "\t"); //just for checks
+            //    }
+            //}
 
             int betDecision;
             int numberOfRows = arrayNumbers.GetLength(0);
@@ -52,6 +52,16 @@
             
             while (keepPlaying)
             {
+                for (int row = 0; row < arrayNumbers.GetLength(0); row++)
+                {
+                    for (int column = 0; column < arrayNumbers.GetLength(1); column++)
+                    {
+                        arrayNumbers[row, column] = generator.Next(MIN_RAND_NUMBER, MAX_RAND_NUMBER + 1);
+                        //Console.Write(arrayNumbers[row, column] + "\t"); //just for checks
+                    }
+                    //Console.WriteLine();
+                }
+
                 if (betDecision == BET_DECISION_NO)
                 {
                     Console.WriteLine("You have decided to quit this game");
@@ -61,16 +71,15 @@
                 {
                     Console.WriteLine();
                     bool valid = false;
-                    Console.WriteLine("Please enter the dollar amount you want to bet");
+                    Console.WriteLine("Please enter the dollar amount you want to bet\n");
                     double betAmount = double.Parse(Console.ReadLine());
                     while (!valid)
                     {
-                        if (betAmount < MIN_BET_AMOUNT) //$1 per line for three lines (3 horizontals)
+                        if (betAmount < MIN_BET_AMOUNT)
                         {
                             Console.WriteLine("Please enter a higher bet amount");
                             betAmount = double.Parse(Console.ReadLine());
                         }
-
                         else
                         {
                             valid = true;
@@ -128,18 +137,8 @@
                             }
 
                         }
-
                         Console.WriteLine();
-                        for (int row = 0; row < arrayNumbers.GetLength(0); row++)
-                        {
-                            for (int column = 0; column < arrayNumbers.GetLength(1); column++)
-                            {
-                                arrayNumbers[row, column] = generator.Next(MIN_RAND_NUMBER, MAX_RAND_NUMBER + 1);
-                                //Console.Write(arrayNumbers[row, column] + "\t"); //just for checks
-
-                            }
-                        }
-
+                        
                         if (betLineChoice == "V" || betLineChoice == "A")
                         {
                             int verticalColumnCounter = 0;
@@ -175,17 +174,7 @@
                                 Console.WriteLine($"Your column only bet amount has reduced to: ${betAmount}");
                             }
                         }
-
                         Console.WriteLine();
-                        for (int row = 0; row < arrayNumbers.GetLength(0); row++)
-                        {
-                            for (int column = 0; column < arrayNumbers.GetLength(1); column++)
-                            {
-                                arrayNumbers[row, column] = generator.Next(MIN_RAND_NUMBER, MAX_RAND_NUMBER + 1);
-                                //Console.Write(arrayNumbers[row, column] + "\t"); //just for checks
-
-                            }
-                        }
 
                         if (betLineChoice == "D")
                         {
