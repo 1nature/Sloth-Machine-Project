@@ -10,14 +10,14 @@ namespace Refactored_Slot_Machine
         {
             bool keepPlaying = true;
 
-            SlotMachineMethods.WelcomeToTheGame();
-            SlotMachineMethods.GameDescription();
-            SlotMachineMethods.BetDecision();
+            SlotMachineMethods.ShowWelcomeToTheGame();
+            SlotMachineMethods.ShowGameDescription();
+            SlotMachineMethods.MakeBetDecision();
 
             while (keepPlaying)
             {
                 int[,] arrayGen = SlotMachineMethods.GetRandom2DArray();
-                SlotMachineMethods.UserBetDecision();
+                SlotMachineMethods.MakeAnotherBet();
 
                 while (SlotMachineMethods.AmountPlacedOnBet() > MIN_BET_AMOUNT)
                 {
@@ -48,7 +48,7 @@ namespace Refactored_Slot_Machine
 
                 if (SlotMachineMethods.AmountPlacedOnBet() < MIN_BET_AMOUNT)
                 {
-                    SlotMachineMethods.UserBetDecision();
+                    SlotMachineMethods.MakeAnotherBet();
                 }
             }
         }

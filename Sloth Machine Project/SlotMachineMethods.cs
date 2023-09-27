@@ -21,7 +21,7 @@ namespace Sloth_Machine_Project
         const int MIN_DIAGONAL_LOSS = 2;
 
         public static readonly Random generator = new Random();
-        public static void WelcomeToTheGame()
+        public static void ShowWelcomeToTheGame()
 
         {
             Console.WriteLine("Welcome to the game\n");
@@ -45,7 +45,7 @@ namespace Sloth_Machine_Project
             return arrayNumbers;
         }
 
-        public static void GameDescription()
+        public static void ShowGameDescription()
         {
             Console.WriteLine("There are three horizontal and three vertical lines available to bet on." +
                 "           You can make a bet for one line or more. A bet for one line costs $1." +
@@ -54,25 +54,33 @@ namespace Sloth_Machine_Project
                 "          the third attempt");
         }
 
-        public static int BetDecision()
+        public static bool MakeBetDecision()
         {
             Console.WriteLine("Enter '1' to make a bet, or '0' to quit");
             int betDecision = int.Parse(Console.ReadLine());
             Console.WriteLine();
-            return betDecision;
+            if (betDecision == BET_DECISION_YES)
+            {
+                return true;
+            }
+
+            else 
+            {
+                return false;
+            }
         }
 
-        public static void UserBetDecision()
+        public static void MakeAnotherBet()
         {
-            int theBetDecision = SlotMachineMethods.BetDecision();
+            bool theBetDecision = SlotMachineMethods.MakeBetDecision();
             Console.WriteLine();
 
-            if (theBetDecision == BET_DECISION_NO)
+            if (theBetDecision == false)
             {
                 Console.WriteLine("You have decided to quit this game");
             }
 
-            if (theBetDecision == BET_DECISION_YES)
+            if (theBetDecision == true)
             {
                 Console.WriteLine();
                 bool valid = false;
@@ -162,6 +170,34 @@ namespace Sloth_Machine_Project
                 Console.WriteLine($"Your row only bet amount has reduced to: ${betAmountInUse}");
             }
             return betAmountInUse;
+        }
+
+        public static double PromptBetAmountIncrease(double betAmountIn)
+        {
+            int rowCounter = RowImplementation();
+            double betAmountIncrease = AmountPlacedOnBet();
+
+            if (rowCounter >= LINE_MATCH_COUNTER)
+            {
+                betAmountIncrease += rowCounter;
+                Console.WriteLine("You have produced at least a winning row combination");
+                Console.WriteLine($"Your row only bet amount has increased to: ${betAmountIncrease}");
+            }
+            return betAmountIn += rowCounter;
+        }
+
+        public static double PromptBetAmountDecrease(int betAmountOut)
+        {
+            int rowCounter = RowImplementation();
+            double betAmountDecrease = AmountPlacedOnBet();
+
+            if (rowCounter < LINE_MATCH_COUNTER)
+            {
+                betAmountDecrease -= MIN_ROWONLY_LOSS;
+                Console.WriteLine("You have not produced a winning row combination");
+                Console.WriteLine($"Your row only bet amount has reduced to: ${betAmountDecrease}");
+            }
+            return betAmountDecrease;
         }
 
         public static int ColumnImplementation()
