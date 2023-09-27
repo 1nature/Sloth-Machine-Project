@@ -77,7 +77,7 @@ namespace Sloth_Machine_Project
 
             if (theBetDecision == false)
             {
-                Console.WriteLine("You have decided to quit this game");
+                Console.WriteLine("You have decided to quit this game.");
             }
 
             if (theBetDecision == true)
