@@ -61,12 +61,12 @@ namespace Sloth_Machine_Project
             Console.WriteLine();
             if (betDecision == BET_DECISION_YES)
             {
-                return true;
+                return betDecision == 1;
             }
 
             else 
             {
-                return false;
+                return betDecision == 0;
             }
         }
 
