@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Sloth_Machine_Project
+﻿namespace Sloth_Machine_Project
 {
     public static class SlotMachineMethods
     {
@@ -120,14 +113,14 @@ namespace Sloth_Machine_Project
             return betLineChoice;
         }
 
-        public static double AmountPlacedOnBet()
+        public static double GetBetAmount()
         {
             Console.WriteLine("Please enter the dollar amount you want to bet\n");
             double amountToBet = double.Parse(Console.ReadLine());
             return amountToBet;
         }
 
-        public static int RowImplementation()
+        public static int RowImplementation(int[,] slotArray)
         {
             int[,] arrayCheck = new int[NUMBER_OF_ROWS, NUMBER_OF_COLUMNS];
             bool lineMatch = true;
@@ -154,7 +147,7 @@ namespace Sloth_Machine_Project
         public static double RowWinOrLossCondition()
         {
             int rowCounter = RowImplementation();
-            double betAmountInUse = AmountPlacedOnBet();
+            double betAmountInUse = GetBetAmount();
 
             if (rowCounter >= LINE_MATCH_COUNTER)
             {
@@ -172,10 +165,15 @@ namespace Sloth_Machine_Project
             return betAmountInUse;
         }
 
+        //public static void ShowBetAmountIncrease(double betAmount)
+        //{
+
+        //}
+
         public static double PromptBetAmountIncrease(double betAmountIn)
         {
             int rowCounter = RowImplementation();
-            double betAmountIncrease = AmountPlacedOnBet();
+            double betAmountIncrease = GetBetAmount();
 
             if (rowCounter >= LINE_MATCH_COUNTER)
             {
@@ -183,13 +181,13 @@ namespace Sloth_Machine_Project
                 Console.WriteLine("You have produced at least a winning row combination");
                 Console.WriteLine($"Your row only bet amount has increased to: ${betAmountIncrease}");
             }
-            return betAmountIn += rowCounter;
+            return betAmountIncrease;
         }
 
         public static double PromptBetAmountDecrease(int betAmountOut)
         {
             int rowCounter = RowImplementation();
-            double betAmountDecrease = AmountPlacedOnBet();
+            double betAmountDecrease = GetBetAmount();
 
             if (rowCounter < LINE_MATCH_COUNTER)
             {
@@ -227,7 +225,7 @@ namespace Sloth_Machine_Project
         public static double ColumnWinOrLossCondition()
         {
             int columnCounter = ColumnImplementation();
-            double betAmountInUse = AmountPlacedOnBet();
+            double betAmountInUse = GetBetAmount();
 
             if (columnCounter >= LINE_MATCH_COUNTER)
             {
@@ -281,7 +279,7 @@ namespace Sloth_Machine_Project
         public static double DiagonalWinOrLossCondition()
         {
             int diagonalCounter = DiagonalImplementation();
-            double betAmountInUse = AmountPlacedOnBet();
+            double betAmountInUse = GetBetAmount();
 
             if (diagonalCounter == LINE_MATCH_COUNTER || diagonalCounter == LINE_MATCH_COUNTER + 1)
             {

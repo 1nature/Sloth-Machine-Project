@@ -1,5 +1,4 @@
 ﻿using Sloth_Machine_Project;
-
 namespace Refactored_Slot_Machine
 {
     internal class Program
@@ -9,25 +8,38 @@ namespace Refactored_Slot_Machine
         static void Main(string[] args)
         {
             bool keepPlaying = true;
+            double bank = 0;
 
             SlotMachineMethods.ShowWelcomeToTheGame();
             SlotMachineMethods.ShowGameDescription();
-            SlotMachineMethods.MakeBetDecision();
+            bool wantsToBet = SlotMachineMethods.MakeBetDecision();
+
+            if(wantsToBet)
+            {
+                //something happens
+                bank = bank + SlotMachineMethods.GetBetAmount();
+
+            }
+            else
+            {
+                //something else happnes
+            }
 
             while (keepPlaying)
             {
                 int[,] arrayGen = SlotMachineMethods.GetRandom2DArray();
                 SlotMachineMethods.MakeAnotherBet();
 
-                while (SlotMachineMethods.AmountPlacedOnBet() > MIN_BET_AMOUNT)
+                while (SlotMachineMethods.GetBetAmount() > MIN_BET_AMOUNT)
                 {
                     SlotMachineMethods.BettingLinesInstruction();
-                    SlotMachineMethods.BettingLinesResponse();
+                    string betSelection = SlotMachineMethods.BettingLinesResponse();
 
-                    if (SlotMachineMethods.BettingLinesResponse() == "H" || SlotMachineMethods.BettingLinesResponse() == "A")
+                    if (betSelection == "H" || betSelection == "A")
                     {
                         SlotMachineMethods.RowImplementation();
                         SlotMachineMethods.RowWinOrLossCondition();
+                        //SlotMachineMethods.PromptBetAmountIncrease();
                     }
                     Console.WriteLine();
 
@@ -46,7 +58,7 @@ namespace Refactored_Slot_Machine
                     Console.WriteLine();
                 }
 
-                if (SlotMachineMethods.AmountPlacedOnBet() < MIN_BET_AMOUNT)
+                if (SlotMachineMethods.GetBetAmount() < MIN_BET_AMOUNT)
                 {
                     SlotMachineMethods.MakeAnotherBet();
                 }
