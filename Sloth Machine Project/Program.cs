@@ -16,6 +16,7 @@ namespace Refactored_Slot_Machine
 
             SlotMachineMethods.ShowWelcomeToTheGame();
             SlotMachineMethods.ShowGameDescription();
+            Console.WriteLine();
             bool wantsToBet = SlotMachineMethods.MakeBetDecision();
 
             if (wantsToBet)
@@ -24,15 +25,10 @@ namespace Refactored_Slot_Machine
                 bank = bank + storeBetAmount;
                 Console.WriteLine();
             }
-            else
-            {
-                //something else happnes
-            }
 
             while (keepPlaying)
             {
                 int[,] arrayGen = SlotMachineMethods.GetRandom2DArray();
-                //SlotMachineMethods.MakeAnotherBet();
 
                 while (bank > MIN_BET_AMOUNT)
                 {
@@ -48,16 +44,12 @@ namespace Refactored_Slot_Machine
                         if (rowCounter >= LINE_MATCH_COUNTER)
                         {
                             double increaseRowBetAmount = SlotMachineMethods.PromptBetAmountIncrease(bank, MIN_ROWONLY_LOSS);
-                            //increaseRowBetAmount += MIN_ROWONLY_LOSS;
                         }
 
                         if (rowCounter < LINE_MATCH_COUNTER)
                         {
                             double decreaseRowBetAmount = SlotMachineMethods.PromptBetAmountDecrease(bank, MIN_ROWONLY_LOSS);
-                            //decreaseRowBetAmount -= MIN_ROWONLY_LOSS;
                         }
-                        //SlotMachineMethods.RowWinOrLossCondition();
-                        //SlotMachineMethods.PromptBetAmountIncrease();
                     }
                     Console.WriteLine();
 
@@ -71,16 +63,12 @@ namespace Refactored_Slot_Machine
                         if (columnCounter >= LINE_MATCH_COUNTER)
                         {
                             double increaseColumnBetAmount = SlotMachineMethods.PromptBetAmountIncrease(bank, MIN_COLUMNONLY_LOSS);
-                            increaseColumnBetAmount += MIN_COLUMNONLY_LOSS;
                         }
 
                         if (columnCounter < LINE_MATCH_COUNTER)
                         {
                             double decreaseColumnBetAmount = SlotMachineMethods.PromptBetAmountDecrease(bank, MIN_COLUMNONLY_LOSS);
-                            decreaseColumnBetAmount -= MIN_ROWONLY_LOSS;
                         }
-                        //SlotMachineMethods.ColumnImplementation();
-                        //SlotMachineMethods.ColumnWinOrLossCondition();
                     }
                     Console.WriteLine();
 

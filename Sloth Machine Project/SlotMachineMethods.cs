@@ -44,10 +44,10 @@ namespace Sloth_Machine_Project
         public static void ShowGameDescription()
         {
             Console.WriteLine("There are three horizontal and three vertical lines available to bet on." +
-                "           You can make a bet for one line or more. A bet for one line costs $1." +
-                "          The amount you bet either increases or reduces depending whether you win or lose." +
-                "          The game ends after three betting attempts or if your bet amount is depleted before" +
-                "          the third attempt");
+                           "You can make a bet for one line or more. A bet for one line costs $1." +
+                           "The amount you bet either increases or reduces depending whether you win or lose." +
+                           "The game ends after three betting attempts or if your bet amount is depleted before" +
+                           "the third attempt");
         }
 
         public static bool MakeBetDecision()
