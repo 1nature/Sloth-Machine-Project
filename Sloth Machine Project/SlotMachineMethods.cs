@@ -1,4 +1,6 @@
-﻿namespace Sloth_Machine_Project
+﻿using System.Diagnostics.Metrics;
+
+namespace Sloth_Machine_Project
 {
     public static class SlotMachineMethods
     {
@@ -8,10 +10,11 @@
         const int NUMBER_OF_COLUMNS = 3;
         const int BET_DECISION_YES = 1;
         const int BET_DECISION_NO = 0;
-        const int LINE_MATCH_COUNTER = 1;
+        //const int LINE_MATCH_COUNTER = 1;
         const int MIN_BET_AMOUNT = 1;
-        const int MIN_ROWONLY_LOSS = 3;
-        const int MIN_DIAGONAL_LOSS = 2;
+        //const int MIN_ROWONLY_LOSS = 3;
+        //const int MIN_COLUMNONLY_LOSS = 3;
+        //const int MIN_DIAGONAL_LOSS = 2;
 
         public static readonly Random generator = new Random();
         public static void ShowWelcomeToTheGame()
@@ -54,12 +57,13 @@
             Console.WriteLine();
             if (betDecision == BET_DECISION_YES)
             {
-                return betDecision == 1;
+                return true;
             }
 
-            else 
+            else
             {
-                return betDecision == 0;
+                return false;
+                Console.WriteLine("You have decided not to make a bet");
             }
         }
 
@@ -122,7 +126,7 @@
 
         public static int RowImplementation(int[,] slotArray)
         {
-            int[,] arrayCheck = new int[NUMBER_OF_ROWS, NUMBER_OF_COLUMNS];
+            //int[,] arrayCheck = new int[NUMBER_OF_ROWS, NUMBER_OF_COLUMNS];
             bool lineMatch = true;
             int horizontalRowCounter = 0;
 
@@ -130,7 +134,11 @@
             {
                 for (int columnIndex = 0; columnIndex < NUMBER_OF_COLUMNS; columnIndex++)
                 {
-                    if (arrayCheck[rowIndex, 0] != arrayCheck[rowIndex, columnIndex])
+                    //if (arrayCheck[rowIndex, 0] != arrayCheck[rowIndex, columnIndex])
+                    //{
+                    //    lineMatch = false;
+                    //}
+                    if (slotArray[rowIndex, 0] != slotArray[rowIndex, columnIndex])
                     {
                         lineMatch = false;
                     }
@@ -144,63 +152,9 @@
             return horizontalRowCounter;
         }
 
-        public static double RowWinOrLossCondition()
+        public static int ColumnImplementation(int[,] slotArray)
         {
-            int rowCounter = RowImplementation();
-            double betAmountInUse = GetBetAmount();
-
-            if (rowCounter >= LINE_MATCH_COUNTER)
-            {
-                betAmountInUse += rowCounter;
-                Console.WriteLine("You have produced at least a winning row combination");
-                Console.WriteLine($"Your row only bet amount has increased to: ${betAmountInUse}");
-            }
-
-            else
-            {
-                betAmountInUse -= MIN_ROWONLY_LOSS;
-                Console.WriteLine("You have not produced a winning row combination");
-                Console.WriteLine($"Your row only bet amount has reduced to: ${betAmountInUse}");
-            }
-            return betAmountInUse;
-        }
-
-        //public static void ShowBetAmountIncrease(double betAmount)
-        //{
-
-        //}
-
-        public static double PromptBetAmountIncrease(double betAmountIn)
-        {
-            int rowCounter = RowImplementation();
-            double betAmountIncrease = GetBetAmount();
-
-            if (rowCounter >= LINE_MATCH_COUNTER)
-            {
-                betAmountIncrease += rowCounter;
-                Console.WriteLine("You have produced at least a winning row combination");
-                Console.WriteLine($"Your row only bet amount has increased to: ${betAmountIncrease}");
-            }
-            return betAmountIncrease;
-        }
-
-        public static double PromptBetAmountDecrease(int betAmountOut)
-        {
-            int rowCounter = RowImplementation();
-            double betAmountDecrease = GetBetAmount();
-
-            if (rowCounter < LINE_MATCH_COUNTER)
-            {
-                betAmountDecrease -= MIN_ROWONLY_LOSS;
-                Console.WriteLine("You have not produced a winning row combination");
-                Console.WriteLine($"Your row only bet amount has reduced to: ${betAmountDecrease}");
-            }
-            return betAmountDecrease;
-        }
-
-        public static int ColumnImplementation()
-        {
-            int[,] arrayCheck = new int[NUMBER_OF_ROWS, NUMBER_OF_COLUMNS];
+            //int[,] arrayCheck = new int[NUMBER_OF_ROWS, NUMBER_OF_COLUMNS];
             bool lineMatch = true;
             int verticalColumnCounter = 0;
 
@@ -208,7 +162,12 @@
             {
                 for (int columnIndex = 0; columnIndex < NUMBER_OF_COLUMNS; columnIndex++)
                 {
-                    if (arrayCheck[columnIndex, 0] != arrayCheck[rowIndex, columnIndex])
+                    //if (arrayCheck[columnIndex, 0] != arrayCheck[rowIndex, columnIndex])
+                    //{
+                    //    lineMatch = false;
+                    //}
+
+                    if (slotArray[columnIndex, 0] != slotArray[rowIndex, columnIndex])
                     {
                         lineMatch = false;
                     }
@@ -222,30 +181,39 @@
             return verticalColumnCounter;
         }
 
-        public static double ColumnWinOrLossCondition()
+        public static double PromptABetAmountDecrease(double X)
         {
-            int columnCounter = ColumnImplementation();
-            double betAmountInUse = GetBetAmount();
-
-            if (columnCounter >= LINE_MATCH_COUNTER)
-            {
-                betAmountInUse += columnCounter;
-                Console.WriteLine("You have produced at least a winning row combination");
-                Console.WriteLine($"Your row only bet amount has increased to: ${betAmountInUse}");
-            }
-
-            else
-            {
-                betAmountInUse -= MIN_ROWONLY_LOSS;
-                Console.WriteLine("You have not produced a winning row combination");
-                Console.WriteLine($"Your row only bet amount has reduced to: ${betAmountInUse}");
-            }
-            return betAmountInUse;
+            return X;
         }
 
-        public static int DiagonalImplementation()
+
+
+        public static double PromptBetAmountIncrease(double betAmountIn, double counter)
         {
-            int[,] arrayCheck = new int[NUMBER_OF_ROWS, NUMBER_OF_COLUMNS];
+            double result = betAmountIn + counter;
+            Console.WriteLine("You have produced at least a winning row combination");
+            Console.WriteLine($"Your row only bet amount has increased to: ${result}");
+            return result;
+        }
+
+        //public static void GetLossComment()
+        //{
+        //    double whoKnows = PromptABetAmountDe
+        //    Console.WriteLine("You have produced at least a winning row combination");
+        //    Console.WriteLine($"Your row only bet amount has increased to: ${result}");
+        //}
+
+        public static double PromptBetAmountDecrease(double betAmountOut, double counter)
+        {
+            double result = betAmountOut - counter;
+            Console.WriteLine("You have not produced a winning row combination");
+            Console.WriteLine($"Your row only bet amount has reduced to: ${result}");
+            return result;
+        }
+
+        public static int DiagonalImplementation(int[,] slotArray)
+        {
+            //int[,] arrayCheck = new int[NUMBER_OF_ROWS, NUMBER_OF_COLUMNS];
             bool lineMatch = true;
             int diagonalOneCounter = 0;
             int diagonalTwoCounter = 0;
@@ -253,7 +221,7 @@
 
             for (int diagonalIndex = 0; diagonalIndex < diagonalLength; diagonalIndex++)
             {
-                if (arrayCheck[diagonalIndex, diagonalIndex] != arrayCheck[diagonalIndex, diagonalIndex])
+                if (slotArray[diagonalIndex, diagonalIndex] != slotArray[diagonalIndex, diagonalIndex])
                 {
                     lineMatch = false;
                 }
@@ -263,7 +231,7 @@
                     diagonalOneCounter++;
                 }
 
-                if (arrayCheck[diagonalIndex, 2 - diagonalIndex] != arrayCheck[diagonalIndex, 2 - diagonalIndex])
+                if (slotArray[diagonalIndex, 2 - diagonalIndex] != slotArray[diagonalIndex, 2 - diagonalIndex])
                 {
                     lineMatch = false;
                 }
@@ -276,25 +244,6 @@
             return diagonalOneCounter + diagonalTwoCounter;
         }
 
-        public static double DiagonalWinOrLossCondition()
-        {
-            int diagonalCounter = DiagonalImplementation();
-            double betAmountInUse = GetBetAmount();
-
-            if (diagonalCounter == LINE_MATCH_COUNTER || diagonalCounter == LINE_MATCH_COUNTER + 1)
-            {
-                betAmountInUse += diagonalCounter;
-                Console.WriteLine("You have produced a winning diagonal combination");
-                Console.WriteLine($"Your diagonal only bet amount has increased to: ${betAmountInUse}");
-            }
-            else
-            {
-                betAmountInUse -= MIN_DIAGONAL_LOSS;
-                Console.WriteLine("You have not produced a winning diagonal combination");
-                Console.WriteLine($"Your diagonal only bet amount has reduced to: ${betAmountInUse}");
-            }
-            return betAmountInUse;
-        }
 
     }
 
