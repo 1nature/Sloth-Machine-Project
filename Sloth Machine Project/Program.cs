@@ -54,7 +54,7 @@ namespace Refactored_Slot_Machine
                     Console.WriteLine();
 
 
-                    if (betSelection == "V" || betSelection == "A")
+                    if (betSelection == "V" || betSelection == "A") //
                     {
                         int numberOfColumnMatches = SlotMachineMethods.ColumnImplementation(arrayGen);
 
