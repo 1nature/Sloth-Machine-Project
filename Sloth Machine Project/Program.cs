@@ -32,8 +32,8 @@ namespace Refactored_Slot_Machine
 
                 while (bank > MIN_BET_AMOUNT)
                 {
-                    SlotMachineMethods.BettingLinesInstruction();
-                    string betSelection = SlotMachineMethods.BettingLinesResponse();
+                    BettingLinesInstruction();
+                    string betSelection = BettingLinesResponse();
 
                     if (betSelection == "H" || betSelection == "A")
                     {
@@ -111,6 +111,23 @@ namespace Refactored_Slot_Machine
                            "The amount you bet either increases or reduces depending whether you win or lose." +
                            "The game ends after three betting attempts or if your bet amount is depleted before" +
                            "the third attempt");
+        }
+
+        public static void BettingLinesInstruction()
+        {
+            Console.WriteLine();
+            Console.WriteLine("***************************************");
+            Console.WriteLine();
+            Console.WriteLine("Please enter 'A' to bet all the lines OR 'H' " +
+                "to bet horizontal lines only or 'V' to bet vertical lines only or 'D'" +
+                " to bet diagonal lines only. $1 per line");
+            Console.WriteLine();
+        }
+
+        public static string BettingLinesResponse()
+        {
+            string betLineChoice = Console.ReadLine().ToUpper();
+            return betLineChoice;
         }
     }
 }

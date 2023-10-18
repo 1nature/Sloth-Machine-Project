@@ -88,22 +88,22 @@
 
         }
 
-        public static void BettingLinesInstruction()
-        {
-            Console.WriteLine();
-            Console.WriteLine("**************************************");
-            Console.WriteLine();
-            Console.WriteLine("Please enter 'A' to bet all the lines OR 'H' " +
-                "to bet horizontal lines only or 'V' to bet vertical lines only or 'D'" +
-                " to bet diagonal lines only. $1 per line");
-            Console.WriteLine();
-        }
+        //public static void BettingLinesInstruction()
+        //{
+        //    Console.WriteLine();
+        //    Console.WriteLine("**************************************");
+        //    Console.WriteLine();
+        //    Console.WriteLine("Please enter 'A' to bet all the lines OR 'H' " +
+        //        "to bet horizontal lines only or 'V' to bet vertical lines only or 'D'" +
+        //        " to bet diagonal lines only. $1 per line");
+        //    Console.WriteLine();
+        //}
 
-        public static string BettingLinesResponse()
-        {
-            string betLineChoice = Console.ReadLine().ToUpper();
-            return betLineChoice;
-        }
+        //public static string BettingLinesResponse()
+        //{
+        //    string betLineChoice = Console.ReadLine().ToUpper();
+        //    return betLineChoice;
+        //}
 
         public static double GetBetAmount()
         {
