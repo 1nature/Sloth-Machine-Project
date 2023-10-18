@@ -1,6 +1,4 @@
-﻿using System.Diagnostics.Metrics;
-
-namespace Sloth_Machine_Project
+﻿namespace Sloth_Machine_Project
 {
     public static class SlotMachineMethods
     {
@@ -9,12 +7,7 @@ namespace Sloth_Machine_Project
         const int NUMBER_OF_ROWS = 3;
         const int NUMBER_OF_COLUMNS = 3;
         const int BET_DECISION_YES = 1;
-        const int BET_DECISION_NO = 0;
-        //const int LINE_MATCH_COUNTER = 1;
         const int MIN_BET_AMOUNT = 1;
-        //const int MIN_ROWONLY_LOSS = 3;
-        //const int MIN_COLUMNONLY_LOSS = 3;
-        //const int MIN_DIAGONAL_LOSS = 2;
 
         public static readonly Random generator = new Random();
         public static void ShowWelcomeToTheGame()
@@ -126,7 +119,6 @@ namespace Sloth_Machine_Project
 
         public static int RowImplementation(int[,] slotArray)
         {
-            //int[,] arrayCheck = new int[NUMBER_OF_ROWS, NUMBER_OF_COLUMNS];
             bool lineMatch = true;
             int horizontalRowCounter = 0;
 
@@ -134,10 +126,6 @@ namespace Sloth_Machine_Project
             {
                 for (int columnIndex = 0; columnIndex < NUMBER_OF_COLUMNS; columnIndex++)
                 {
-                    //if (arrayCheck[rowIndex, 0] != arrayCheck[rowIndex, columnIndex])
-                    //{
-                    //    lineMatch = false;
-                    //}
                     if (slotArray[rowIndex, 0] != slotArray[rowIndex, columnIndex])
                     {
                         lineMatch = false;
@@ -154,7 +142,6 @@ namespace Sloth_Machine_Project
 
         public static int ColumnImplementation(int[,] slotArray)
         {
-            //int[,] arrayCheck = new int[NUMBER_OF_ROWS, NUMBER_OF_COLUMNS];
             bool lineMatch = true;
             int verticalColumnCounter = 0;
 
@@ -162,10 +149,6 @@ namespace Sloth_Machine_Project
             {
                 for (int columnIndex = 0; columnIndex < NUMBER_OF_COLUMNS; columnIndex++)
                 {
-                    //if (arrayCheck[columnIndex, 0] != arrayCheck[rowIndex, columnIndex])
-                    //{
-                    //    lineMatch = false;
-                    //}
 
                     if (slotArray[columnIndex, 0] != slotArray[rowIndex, columnIndex])
                     {
@@ -186,8 +169,6 @@ namespace Sloth_Machine_Project
             return X;
         }
 
-
-
         public static double PromptBetAmountIncrease(double betAmountIn, double counter)
         {
             double result = betAmountIn + counter;
@@ -196,12 +177,6 @@ namespace Sloth_Machine_Project
             return result;
         }
 
-        //public static void GetLossComment()
-        //{
-        //    double whoKnows = PromptABetAmountDe
-        //    Console.WriteLine("You have produced at least a winning row combination");
-        //    Console.WriteLine($"Your row only bet amount has increased to: ${result}");
-        //}
 
         public static double PromptBetAmountDecrease(double betAmountOut, double counter)
         {
@@ -213,7 +188,6 @@ namespace Sloth_Machine_Project
 
         public static int DiagonalImplementation(int[,] slotArray)
         {
-            //int[,] arrayCheck = new int[NUMBER_OF_ROWS, NUMBER_OF_COLUMNS];
             bool lineMatch = true;
             int diagonalOneCounter = 0;
             int diagonalTwoCounter = 0;
