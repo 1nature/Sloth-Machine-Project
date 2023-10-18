@@ -7,6 +7,7 @@
         const int NUMBER_OF_ROWS = 3;
         const int NUMBER_OF_COLUMNS = 3;
         const int BET_DECISION_YES = 1;
+        const int BET_DECISION_N0 = 0;
         const int MIN_BET_AMOUNT = 1;
 
         public static readonly Random generator = new Random();
@@ -50,8 +51,8 @@
 
             else
             {
-                return false;
                 Console.WriteLine("You have decided not to make a bet");
+                return false;
             }
         }
 

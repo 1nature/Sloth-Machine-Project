@@ -17,14 +17,18 @@ namespace Refactored_Slot_Machine
             ShowWelcomeToTheGame();
             ShowGameDescription();
             Console.WriteLine();
-            bool wantsToBet = SlotMachineMethods.MakeBetDecision();
+            //bool wantsToBet = SlotMachineMethods.MakeBetDecision();
+            keepPlaying = SlotMachineMethods.MakeBetDecision();
 
-            if (wantsToBet)
+            if (keepPlaying)
             {
                 double storeBetAmount = SlotMachineMethods.GetBetAmount();
                 bank = bank + storeBetAmount;
                 Console.WriteLine();
             }
+
+            //bool makeAnotherBet = SlotMachineMethods.MakeBetDecision();
+            //makeAnotherBet = keepPlaying;
 
             while (keepPlaying)
             {
@@ -92,10 +96,10 @@ namespace Refactored_Slot_Machine
                     Console.WriteLine();
                 }
 
-                if (bank < MIN_BET_AMOUNT)
-                {
-                    SlotMachineMethods.MakeAnotherBet();
-                }
+                //if (bank < MIN_BET_AMOUNT)
+                //{
+                //    SlotMachineMethods.MakeAnotherBet();
+                //}
             }
         }
 
