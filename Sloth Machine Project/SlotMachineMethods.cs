@@ -145,8 +145,14 @@
             return betAmountOut;
         }
 
+
         public static double PromptXBetAmountDecrease(double betAmountOut)
         {
+            double banki = GetBetAmount();
+            int numberOfRowMatches = SlotMachineMethods.RowImplementation(arrayGen);
+            double rowCounter = 0;
+            double increaseRowBetAmount = banki + rowCounter;
+            betAmountOut = increaseRowBetAmount;
             return betAmountOut;
         }
 
