@@ -1,4 +1,6 @@
 ﻿using Sloth_Machine_Project;
+using System.Diagnostics.Metrics;
+
 namespace Refactored_Slot_Machine
 {
     internal class Program
@@ -17,7 +19,7 @@ namespace Refactored_Slot_Machine
             ShowWelcomeToTheGame();
             ShowGameDescription();
             Console.WriteLine();
-            //bool wantsToBet = SlotMachineMethods.MakeBetDecision();
+
             keepPlaying = SlotMachineMethods.MakeBetDecision();
 
             if (keepPlaying)
@@ -26,9 +28,6 @@ namespace Refactored_Slot_Machine
                 bank = bank + storeBetAmount;
                 Console.WriteLine();
             }
-
-            //bool makeAnotherBet = SlotMachineMethods.MakeBetDecision();
-            //makeAnotherBet = keepPlaying;
 
             while (keepPlaying)
             {
@@ -47,12 +46,18 @@ namespace Refactored_Slot_Machine
 
                         if (rowCounter >= LINE_MATCH_COUNTER)
                         {
-                            double increaseRowBetAmount = SlotMachineMethods.PromptBetAmountIncrease(bank, MIN_ROWONLY_LOSS);
+                            double increaseRowBetAmount = bank + rowCounter;
+                            SlotMachineMethods.PromptBetAmountIncrease(increaseRowBetAmount);
+                            Console.WriteLine("You have produced at least a winning row combination");
+                            Console.WriteLine($"Your row only bet amount has increased to: ${increaseRowBetAmount}");
                         }
 
                         if (rowCounter < LINE_MATCH_COUNTER)
                         {
-                            double decreaseRowBetAmount = SlotMachineMethods.PromptBetAmountDecrease(bank, MIN_ROWONLY_LOSS);
+                            double decreaseRowBetAmount = bank - rowCounter;
+                            SlotMachineMethods.PromptBetAmountDecrease(decreaseRowBetAmount);
+                            Console.WriteLine("You have not produced a winning row combination");
+                            Console.WriteLine($"Your row only bet amount has reduced to: ${decreaseRowBetAmount}");
                         }
                     }
                     Console.WriteLine();
@@ -66,12 +71,18 @@ namespace Refactored_Slot_Machine
 
                         if (columnCounter >= LINE_MATCH_COUNTER)
                         {
-                            double increaseColumnBetAmount = SlotMachineMethods.PromptBetAmountIncrease(bank, MIN_COLUMNONLY_LOSS);
+                            double increaseColumnBetAmount = bank + columnCounter;
+                            SlotMachineMethods.PromptBetAmountIncrease(increaseColumnBetAmount);
+                            Console.WriteLine("You have produced at least a winning row combination");
+                            Console.WriteLine($"Your column only bet amount has increased to: ${increaseColumnBetAmount}");
                         }
 
                         if (columnCounter < LINE_MATCH_COUNTER)
                         {
-                            double decreaseColumnBetAmount = SlotMachineMethods.PromptBetAmountDecrease(bank, MIN_COLUMNONLY_LOSS);
+                            double decreaseColumnBetAmount = bank - columnCounter;
+                            SlotMachineMethods.PromptBetAmountIncrease(decreaseColumnBetAmount);
+                            Console.WriteLine("You have not produced a winning row combination");
+                            Console.WriteLine($"Your row only bet amount has reduced to: ${decreaseColumnBetAmount}");
                         }
                     }
                     Console.WriteLine();
@@ -83,14 +94,18 @@ namespace Refactored_Slot_Machine
 
                         if (diagonalCounter >= LINE_MATCH_COUNTER)
                         {
-                            double increaseDiagonalBetAmount = SlotMachineMethods.PromptBetAmountIncrease(bank, MIN_DIAGONAL_LOSS);
-                            increaseDiagonalBetAmount += MIN_DIAGONAL_LOSS;
+                            double increaseDiagonalBetAmount = bank + diagonalCounter;
+                            SlotMachineMethods.PromptBetAmountIncrease(increaseDiagonalBetAmount);
+                            Console.WriteLine("You have produced at least a winning row combination");
+                            Console.WriteLine($"Your diagonal only bet amount has increased to: ${increaseDiagonalBetAmount}");
                         }
 
                         if (diagonalCounter < LINE_MATCH_COUNTER)
                         {
-                            double decreaseColumnBetAmount = SlotMachineMethods.PromptBetAmountDecrease(bank, MIN_DIAGONAL_LOSS);
-                            decreaseColumnBetAmount -= MIN_DIAGONAL_LOSS;
+                            double decreaseDiagonalBetAmount = bank - diagonalCounter;
+                            SlotMachineMethods.PromptBetAmountIncrease(decreaseDiagonalBetAmount);
+                            Console.WriteLine("You have not produced a winning row combination");
+                            Console.WriteLine($"Your diagonal only bet amount has reduced to: ${decreaseDiagonalBetAmount}");
                         }
                     }
                     Console.WriteLine();

@@ -11,7 +11,7 @@
         const int MIN_BET_AMOUNT = 1;
 
         public static readonly Random generator = new Random();
-
+       
         public static int[,] GetRandom2DArray()
         {
             int[,] arrayNumbers = new int[NUMBER_OF_ROWS, NUMBER_OF_COLUMNS];
@@ -29,15 +29,6 @@
             Console.WriteLine();
             return arrayNumbers;
         }
-
-        //public static void ShowGameDescription()
-        //{
-        //    Console.WriteLine("There are three horizontal and three vertical lines available to bet on." +
-        //                   "You can make a bet for one line or more. A bet for one line costs $1." +
-        //                   "The amount you bet either increases or reduces depending whether you win or lose." +
-        //                   "The game ends after three betting attempts or if your bet amount is depleted before" +
-        //                   "the third attempt");
-        //}
 
         public static bool MakeBetDecision()
         {
@@ -88,23 +79,6 @@
             }
 
         }
-
-        //public static void BettingLinesInstruction()
-        //{
-        //    Console.WriteLine();
-        //    Console.WriteLine("**************************************");
-        //    Console.WriteLine();
-        //    Console.WriteLine("Please enter 'A' to bet all the lines OR 'H' " +
-        //        "to bet horizontal lines only or 'V' to bet vertical lines only or 'D'" +
-        //        " to bet diagonal lines only. $1 per line");
-        //    Console.WriteLine();
-        //}
-
-        //public static string BettingLinesResponse()
-        //{
-        //    string betLineChoice = Console.ReadLine().ToUpper();
-        //    return betLineChoice;
-        //}
 
         public static double GetBetAmount()
         {
@@ -160,26 +134,15 @@
             return verticalColumnCounter;
         }
 
-        public static double PromptABetAmountDecrease(double X)
+        public static double PromptBetAmountIncrease(double betAmountIn)
         {
-            return X;
+            double result = betAmount + 0;
+            return betAmountIn;
         }
 
-        public static double PromptBetAmountIncrease(double betAmountIn, double counter)
+        public static double PromptBetAmountDecrease(double betAmountOut)
         {
-            double result = betAmountIn + counter;
-            Console.WriteLine("You have produced at least a winning row combination");
-            Console.WriteLine($"Your row only bet amount has increased to: ${result}");
-            return result;
-        }
-
-
-        public static double PromptBetAmountDecrease(double betAmountOut, double counter)
-        {
-            double result = betAmountOut - counter;
-            Console.WriteLine("You have not produced a winning row combination");
-            Console.WriteLine($"Your row only bet amount has reduced to: ${result}");
-            return result;
+            return betAmountOut;
         }
 
         public static int DiagonalImplementation(int[,] slotArray)
