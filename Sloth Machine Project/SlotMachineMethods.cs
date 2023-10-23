@@ -40,9 +40,10 @@
                 return true;
             }
 
-            else
+            else 
             {
-                Console.WriteLine("You have decided not to make a bet");
+                //betDecision = BET_DECISION_N0;
+                //Console.WriteLine("You have decided not to make a bet");
                 return false;
             }
         }
@@ -136,7 +137,6 @@
 
         public static double PromptBetAmountIncrease(double betAmountIn)
         {
-            double result = betAmount + 0;
             return betAmountIn;
         }
 

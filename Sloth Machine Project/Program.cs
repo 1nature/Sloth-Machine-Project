@@ -22,11 +22,16 @@ namespace Refactored_Slot_Machine
 
             keepPlaying = SlotMachineMethods.MakeBetDecision();
 
-            if (keepPlaying)
+            if (keepPlaying == true)
             {
                 double storeBetAmount = SlotMachineMethods.GetBetAmount();
                 bank = bank + storeBetAmount;
                 Console.WriteLine();
+            }
+
+            if (keepPlaying == false)
+            {
+                Console.WriteLine("You have decided not to make a bet.");
             }
 
             while (keepPlaying)
@@ -68,10 +73,12 @@ namespace Refactored_Slot_Machine
                         int numberOfColumnMatches = SlotMachineMethods.ColumnImplementation(arrayGen);
 
                         int columnCounter = numberOfColumnMatches;
+                        double increaseColumnBetAmount = bank + columnCounter;
+                        double decreaseColumnBetAmount = bank - columnCounter;
 
                         if (columnCounter >= LINE_MATCH_COUNTER)
                         {
-                            double increaseColumnBetAmount = bank + columnCounter;
+                            //double increaseColumnBetAmount = bank + columnCounter;
                             SlotMachineMethods.PromptBetAmountIncrease(increaseColumnBetAmount);
                             Console.WriteLine("You have produced at least a winning row combination");
                             Console.WriteLine($"Your column only bet amount has increased to: ${increaseColumnBetAmount}");
@@ -79,7 +86,7 @@ namespace Refactored_Slot_Machine
 
                         if (columnCounter < LINE_MATCH_COUNTER)
                         {
-                            double decreaseColumnBetAmount = bank - columnCounter;
+                            //double decreaseColumnBetAmount = bank - columnCounter;
                             SlotMachineMethods.PromptBetAmountIncrease(decreaseColumnBetAmount);
                             Console.WriteLine("You have not produced a winning row combination");
                             Console.WriteLine($"Your row only bet amount has reduced to: ${decreaseColumnBetAmount}");
