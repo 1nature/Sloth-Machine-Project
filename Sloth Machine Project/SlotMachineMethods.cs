@@ -11,7 +11,7 @@
         const int MIN_BET_AMOUNT = 1;
 
         public static readonly Random generator = new Random();
-       
+
         public static int[,] GetRandom2DArray()
         {
             int[,] arrayNumbers = new int[NUMBER_OF_ROWS, NUMBER_OF_COLUMNS];
@@ -40,7 +40,7 @@
                 return true;
             }
 
-            else 
+            else
             {
                 //betDecision = BET_DECISION_N0;
                 //Console.WriteLine("You have decided not to make a bet");
@@ -141,6 +141,11 @@
         }
 
         public static double PromptBetAmountDecrease(double betAmountOut)
+        {
+            return betAmountOut;
+        }
+
+        public static double PromptXBetAmountDecrease(double betAmountOut)
         {
             return betAmountOut;
         }
