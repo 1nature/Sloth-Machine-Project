@@ -50,5 +50,10 @@ namespace Sloth_Machine_Project
             Console.WriteLine("You have not produced a winning row combination");
             Console.WriteLine($"Your bet amount has reduced to: ${amount}");
         }
+
+        public static void Print2DArray(int[,] arrayDisplay)
+        {
+            Console.WriteLine($"{arrayDisplay}");
+        }
     }
 }

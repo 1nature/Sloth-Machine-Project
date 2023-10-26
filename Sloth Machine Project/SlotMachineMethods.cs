@@ -21,7 +21,8 @@
                 for (int column = 0; column < arrayNumbers.GetLength(1); column++)
                 {
                     arrayNumbers[row, column] = generator.Next(MIN_RAND_NUMBER, MAX_RAND_NUMBER + 1);
-                    Console.Write(arrayNumbers[row, column] + "\t"); //just for checks
+                    //Console.Write(arrayNumbers[row, column] + "\t"); //just for checks
+                    SlotMachineInAndOutMethods.Print2DArray(arrayNumbers);
                 }
                 Console.WriteLine();
 
@@ -29,6 +30,7 @@
             Console.WriteLine();
             return arrayNumbers;
         }
+        
 
         public static bool MakeBetDecision()
         {
