@@ -42,8 +42,6 @@
 
             else
             {
-                //betDecision = BET_DECISION_N0;
-                //Console.WriteLine("You have decided not to make a bet");
                 return false;
             }
         }
@@ -135,27 +133,6 @@
             return verticalColumnCounter;
         }
 
-        public static double PromptBetAmountIncrease(double betAmountIn)
-        {
-            return betAmountIn;
-        }
-
-        public static double PromptBetAmountDecrease(double betAmountOut)
-        {
-            return betAmountOut;
-        }
-
-
-        public static double PromptXBetAmountDecrease(double betAmountOut)
-        {
-            double banki = GetBetAmount();
-            int numberOfRowMatches = SlotMachineMethods.RowImplementation(arrayGen);
-            double rowCounter = 0;
-            double increaseRowBetAmount = banki + rowCounter;
-            betAmountOut = increaseRowBetAmount;
-            return betAmountOut;
-        }
-
         public static int DiagonalImplementation(int[,] slotArray)
         {
             bool lineMatch = true;
@@ -188,8 +165,6 @@
             return diagonalOneCounter + diagonalTwoCounter;
         }
 
-
     }
-
 }
 

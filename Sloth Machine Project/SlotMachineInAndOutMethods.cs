@@ -39,6 +39,16 @@ namespace Sloth_Machine_Project
             return betLineChoice;
         }
 
+        public static void PrintBetAmountIncrease(double amount)
+        {
+            Console.WriteLine("You have produced at least a winning row combination");
+            Console.WriteLine($"Your bet amount has increased to: ${amount}");
+        }
 
+        public static void PrintBetAmountDecrease(double amount)
+        {
+            Console.WriteLine("You have not produced a winning row combination");
+            Console.WriteLine($"Your bet amount has reduced to: ${amount}");
+        }
     }
 }
