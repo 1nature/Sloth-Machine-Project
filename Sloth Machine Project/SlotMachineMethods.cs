@@ -32,7 +32,7 @@
 
         public static bool MakeBetDecision()
         {
-            Console.WriteLine("Enter '1' to make a bet, or '0' to quit");
+            Console.WriteLine("Enter '1' to make a bet, or '0' to quit.");
             int betDecision = int.Parse(Console.ReadLine());
             Console.WriteLine();
             if (betDecision == BET_DECISION_YES)
