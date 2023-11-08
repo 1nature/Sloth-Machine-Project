@@ -39,13 +39,13 @@
             Console.WriteLine();
             if (betDecision == BET_DECISION_YES)
             {
-                return true;
+                return (betDecision == BET_DECISION_YES);
             }
 
-            else
-            {
-                return false;
-            }
+            //else
+            //{
+            //    return false;
+            //}
         }
 
         public static void MakeAnotherBet()
