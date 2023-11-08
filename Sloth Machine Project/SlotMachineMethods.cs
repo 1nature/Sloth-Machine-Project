@@ -35,12 +35,12 @@
         public static bool MakeBetDecision()
         {
             Console.WriteLine("Enter '1' to make a bet, or '0' to quit.");
-            int betDecision = int.Parse(Console.ReadLine());
+            char betDecision = char.Parse(Console.ReadLine());
             Console.WriteLine();
-            if (betDecision == BET_DECISION_YES)
-            {
+            //if (betDecision == BET_DECISION_YES)
+            //{
                 return (betDecision == BET_DECISION_YES);
-            }
+            
 
             //else
             //{
