@@ -24,7 +24,7 @@ namespace Refactored_Slot_Machine
                 Console.WriteLine();
             }
 
-            if (keepPlaying == false)
+            else 
             {
                 Console.WriteLine("You have decided not to make a bet.");
             }
@@ -50,7 +50,7 @@ namespace Refactored_Slot_Machine
                             SlotMachineInAndOutMethods.PrintBetAmountIncrease(increaseRowBetAmount);
                         }
 
-                        if (rowCounter < LINE_MATCH_COUNTER)
+                        else
                         {
                             double decreaseRowBetAmount = bank - rowCounter;
                             SlotMachineInAndOutMethods.PrintBetAmountDecrease(decreaseRowBetAmount);
@@ -71,7 +71,7 @@ namespace Refactored_Slot_Machine
                             SlotMachineInAndOutMethods.PrintBetAmountIncrease(increaseColumnBetAmount);
                         }
 
-                        if (columnCounter < LINE_MATCH_COUNTER)
+                        else
                         {
                             double decreaseColumnBetAmount = bank - columnCounter;
                             SlotMachineInAndOutMethods.PrintBetAmountDecrease(decreaseColumnBetAmount);
@@ -90,7 +90,7 @@ namespace Refactored_Slot_Machine
                             SlotMachineInAndOutMethods.PrintBetAmountIncrease(increaseDiagonalBetAmount);
                         }
 
-                        if (diagonalCounter < LINE_MATCH_COUNTER)
+                        else
                         {
                             double decreaseDiagonalBetAmount = bank - diagonalCounter;
                             SlotMachineInAndOutMethods.PrintBetAmountDecrease(decreaseDiagonalBetAmount);
