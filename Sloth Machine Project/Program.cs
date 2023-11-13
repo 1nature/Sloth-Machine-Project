@@ -11,15 +11,15 @@ namespace Refactored_Slot_Machine
             bool keepPlaying = true;
             double bank = 0;
 
-            SlotMachineInAndOutMethods.ShowWelcomeToTheGame();
-            SlotMachineInAndOutMethods.ShowGameDescription();
+            UIMethods.ShowWelcomeToTheGame();
+            UIMethods.ShowGameDescription();
             Console.WriteLine();
 
-            keepPlaying = SlotMachineMethods.MakeBetDecision();
+            keepPlaying = LogicMethods.MakeBetDecision();
 
             if (keepPlaying == true)
             {
-                double storeBetAmount = SlotMachineMethods.GetBetAmount();
+                double storeBetAmount = LogicMethods.GetBetAmount();
                 bank = bank + storeBetAmount;
                 Console.WriteLine();
             }
@@ -31,29 +31,29 @@ namespace Refactored_Slot_Machine
 
             while (keepPlaying)
             {
-                int[,] arrayGen = SlotMachineMethods.GetRandom2DArray();
+                int[,] arrayGen = LogicMethods.GetRandom2DArray();
 
                 while (bank > MIN_BET_AMOUNT)
                 {
-                    SlotMachineInAndOutMethods.BettingLinesInstruction();
-                    string betSelection = SlotMachineInAndOutMethods.BettingLinesResponse();
+                    UIMethods.BettingLinesInstruction();
+                    string betSelection = UIMethods.BettingLinesResponse();
 
                     if (betSelection == "H" || betSelection == "A")
                     {
-                        int numberOfRowMatches = SlotMachineMethods.RowImplementation(arrayGen);
+                        int numberOfRowMatches = LogicMethods.RowImplementation(arrayGen);
 
                         int rowCounter = numberOfRowMatches;
 
                         if (rowCounter >= LINE_MATCH_COUNTER)
                         {
                             double increaseRowBetAmount = bank + rowCounter;
-                            SlotMachineInAndOutMethods.PrintBetAmountIncrease(increaseRowBetAmount);
+                            UIMethods.PrintBetAmountIncrease(increaseRowBetAmount);
                         }
 
                         else
                         {
                             double decreaseRowBetAmount = bank - rowCounter;
-                            SlotMachineInAndOutMethods.PrintBetAmountDecrease(decreaseRowBetAmount);
+                            UIMethods.PrintBetAmountDecrease(decreaseRowBetAmount);
                         }
                     }
                     Console.WriteLine();
@@ -61,39 +61,39 @@ namespace Refactored_Slot_Machine
 
                     if (betSelection == "V" || betSelection == "A")
                     {
-                        int numberOfColumnMatches = SlotMachineMethods.ColumnImplementation(arrayGen);
+                        int numberOfColumnMatches = LogicMethods.ColumnImplementation(arrayGen);
 
                         int columnCounter = numberOfColumnMatches;
 
                         if (columnCounter >= LINE_MATCH_COUNTER)
                         {
                             double increaseColumnBetAmount = bank + columnCounter;
-                            SlotMachineInAndOutMethods.PrintBetAmountIncrease(increaseColumnBetAmount);
+                            UIMethods.PrintBetAmountIncrease(increaseColumnBetAmount);
                         }
 
                         else
                         {
                             double decreaseColumnBetAmount = bank - columnCounter;
-                            SlotMachineInAndOutMethods.PrintBetAmountDecrease(decreaseColumnBetAmount);
+                            UIMethods.PrintBetAmountDecrease(decreaseColumnBetAmount);
                         }
                     }
                     Console.WriteLine();
 
                     if (betSelection == "D")
                     {
-                        int numberOfDiagonalMatches = SlotMachineMethods.DiagonalImplementation(arrayGen);
+                        int numberOfDiagonalMatches = LogicMethods.DiagonalImplementation(arrayGen);
                         int diagonalCounter = numberOfDiagonalMatches;
 
                         if (diagonalCounter >= LINE_MATCH_COUNTER)
                         {
                             double increaseDiagonalBetAmount = bank + diagonalCounter;
-                            SlotMachineInAndOutMethods.PrintBetAmountIncrease(increaseDiagonalBetAmount);
+                            UIMethods.PrintBetAmountIncrease(increaseDiagonalBetAmount);
                         }
 
                         else
                         {
                             double decreaseDiagonalBetAmount = bank - diagonalCounter;
-                            SlotMachineInAndOutMethods.PrintBetAmountDecrease(decreaseDiagonalBetAmount);
+                            UIMethods.PrintBetAmountDecrease(decreaseDiagonalBetAmount);
                         }
                     }
                     Console.WriteLine();

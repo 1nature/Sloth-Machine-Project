@@ -1,6 +1,6 @@
 ﻿namespace Sloth_Machine_Project
 {
-    public static class SlotMachineMethods
+    public static class LogicMethods
     {
         const int MIN_RAND_NUMBER = 0;
         const int MAX_RAND_NUMBER = 20;
@@ -22,7 +22,7 @@
                 {
                     arrayNumbers[row, column] = generator.Next(MIN_RAND_NUMBER, MAX_RAND_NUMBER + 1);
                     //Console.Write(arrayNumbers[row, column] + "\t"); //just for checks
-                    SlotMachineInAndOutMethods.Print2DArray(arrayNumbers);
+                    UIMethods.Print2DArray(arrayNumbers);
                 }
                 Console.WriteLine();
 
@@ -50,7 +50,7 @@
 
         public static void MakeAnotherBet()
         {
-            bool theBetDecision = SlotMachineMethods.MakeBetDecision();
+            bool theBetDecision = LogicMethods.MakeBetDecision();
             Console.WriteLine();
 
             if (theBetDecision == false)

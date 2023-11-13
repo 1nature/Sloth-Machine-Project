@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sloth_Machine_Project
 {
-    public static class SlotMachineInAndOutMethods
+    public static class UIMethods
     {
         public static void ShowWelcomeToTheGame()
         {
