@@ -64,5 +64,10 @@ namespace Sloth_Machine_Project
             }
             Console.WriteLine();
         }
+
+        public static void WriteEmptyLine()
+        {
+            Console.WriteLine();
+        }
     }
 }

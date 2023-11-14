@@ -13,7 +13,7 @@ namespace Refactored_Slot_Machine
 
             UIMethods.ShowWelcomeToTheGame();
             UIMethods.ShowGameDescription();
-            Console.WriteLine();
+            UIMethods.WriteEmptyLine();
 
             keepPlaying = LogicMethods.MakeBetDecision();
 
@@ -21,7 +21,7 @@ namespace Refactored_Slot_Machine
             {
                 double storeBetAmount = LogicMethods.GetBetAmount();
                 bank = bank + storeBetAmount;
-                Console.WriteLine();
+                UIMethods.WriteEmptyLine();
             }
 
             else 
@@ -57,7 +57,7 @@ namespace Refactored_Slot_Machine
                             UIMethods.PrintBetAmountDecrease(decreaseRowBetAmount);
                         }
                     }
-                    Console.WriteLine();
+                    UIMethods.WriteEmptyLine();
 
 
                     if (betSelection == "V" || betSelection == "A")
@@ -78,7 +78,7 @@ namespace Refactored_Slot_Machine
                             UIMethods.PrintBetAmountDecrease(decreaseColumnBetAmount);
                         }
                     }
-                    Console.WriteLine();
+                    UIMethods.WriteEmptyLine();
 
                     if (betSelection == "D")
                     {
@@ -97,7 +97,7 @@ namespace Refactored_Slot_Machine
                             UIMethods.PrintBetAmountDecrease(decreaseDiagonalBetAmount);
                         }
                     }
-                    Console.WriteLine();
+                    UIMethods.WriteEmptyLine();
                 }
             }
         }

@@ -25,20 +25,20 @@
             }
             return arrayNumbers;
         }
-        
+
 
         public static bool MakeBetDecision()
         {
             Console.WriteLine("Enter '1' to make a bet, or '0' to quit.");
             int betDecision = int.Parse(Console.ReadLine());
-            Console.WriteLine();
-                return (betDecision == BET_DECISION_YES);
+            UIMethods.WriteEmptyLine();
+            return (betDecision == BET_DECISION_YES);
         }
 
         public static void MakeAnotherBet()
         {
             bool theBetDecision = LogicMethods.MakeBetDecision();
-            Console.WriteLine();
+            UIMethods.WriteEmptyLine();
 
             if (theBetDecision == false)
             {
@@ -47,7 +47,7 @@
 
             if (theBetDecision == true)
             {
-                Console.WriteLine();
+                UIMethods.WriteEmptyLine();
                 bool valid = false;
                 Console.WriteLine("Please enter the dollar amount you want to bet\n");
                 double betAmount = double.Parse(Console.ReadLine());
