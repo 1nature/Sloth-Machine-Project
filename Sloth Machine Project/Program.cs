@@ -15,11 +15,11 @@ namespace Refactored_Slot_Machine
             UIMethods.ShowGameDescription();
             UIMethods.WriteEmptyLine();
 
-            keepPlaying = LogicMethods.MakeBetDecision();
+            keepPlaying = UIMethods.MakeBetDecision();
 
             if (keepPlaying == true)
             {
-                double storeBetAmount = LogicMethods.GetBetAmount();
+                double storeBetAmount = UIMethods.GetBetAmount();
                 bank = bank + storeBetAmount;
                 UIMethods.WriteEmptyLine();
             }

@@ -6,9 +6,6 @@
         const int MAX_RAND_NUMBER = 20;
         const int NUMBER_OF_ROWS = 3;
         const int NUMBER_OF_COLUMNS = 3;
-        const int BET_DECISION_YES = 1;
-        const int BET_DECISION_N0 = 0;
-        const int MIN_BET_AMOUNT = 1;
 
         public static readonly Random generator = new Random();
 
@@ -24,55 +21,6 @@
                 }
             }
             return arrayNumbers;
-        }
-
-
-        public static bool MakeBetDecision()
-        {
-            Console.WriteLine("Enter '1' to make a bet, or '0' to quit.");
-            int betDecision = int.Parse(Console.ReadLine());
-            UIMethods.WriteEmptyLine();
-            return (betDecision == BET_DECISION_YES);
-        }
-
-        public static void MakeAnotherBet()
-        {
-            bool theBetDecision = LogicMethods.MakeBetDecision();
-            UIMethods.WriteEmptyLine();
-
-            if (theBetDecision == false)
-            {
-                Console.WriteLine("You have decided to quit this game.");
-            }
-
-            if (theBetDecision == true)
-            {
-                UIMethods.WriteEmptyLine();
-                bool valid = false;
-                Console.WriteLine("Please enter the dollar amount you want to bet\n");
-                double betAmount = double.Parse(Console.ReadLine());
-                while (!valid)
-                {
-                    if (betAmount < MIN_BET_AMOUNT)
-                    {
-                        Console.WriteLine("Please enter a higher bet amount");
-                        betAmount = double.Parse(Console.ReadLine());
-                    }
-                    else
-                    {
-                        valid = true;
-                    }
-                }
-
-            }
-
-        }
-
-        public static double GetBetAmount()
-        {
-            Console.WriteLine("Please enter the dollar amount you want to bet\n");
-            double amountToBet = double.Parse(Console.ReadLine());
-            return amountToBet;
         }
 
         public static int RowImplementation(int[,] slotArray)
