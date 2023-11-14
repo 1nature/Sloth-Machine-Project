@@ -21,13 +21,8 @@
                 for (int column = 0; column < arrayNumbers.GetLength(1); column++)
                 {
                     arrayNumbers[row, column] = generator.Next(MIN_RAND_NUMBER, MAX_RAND_NUMBER + 1);
-                    //Console.Write(arrayNumbers[row, column] + "\t"); //just for checks
-                    UIMethods.Print2DArray(arrayNumbers);
                 }
-                Console.WriteLine();
-
             }
-            Console.WriteLine();
             return arrayNumbers;
         }
         
@@ -37,15 +32,7 @@
             Console.WriteLine("Enter '1' to make a bet, or '0' to quit.");
             int betDecision = int.Parse(Console.ReadLine());
             Console.WriteLine();
-            //if (betDecision == BET_DECISION_YES)
-            //{
                 return (betDecision == BET_DECISION_YES);
-            
-
-            //else
-            //{
-            //    return false;
-            //}
         }
 
         public static void MakeAnotherBet()

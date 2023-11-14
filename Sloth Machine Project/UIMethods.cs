@@ -53,7 +53,16 @@ namespace Sloth_Machine_Project
 
         public static void Print2DArray(int[,] arrayDisplay)
         {
-            Console.WriteLine($"{arrayDisplay}");
+
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    Console.WriteLine($"{arrayDisplay}");
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine();
         }
     }
 }
