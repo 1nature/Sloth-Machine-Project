@@ -36,9 +36,9 @@ namespace Sloth_Machine_Project
             Console.WriteLine();
         }
 
-        public static string BettingLinesResponse()
+        public static char BettingLinesResponse()
         {
-            string betLineChoice = Console.ReadLine().ToUpper();
+            char betLineChoice = Console.ReadKey().KeyChar; 
             return betLineChoice;
         }
 
