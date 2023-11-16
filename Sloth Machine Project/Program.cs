@@ -5,6 +5,7 @@ namespace Refactored_Slot_Machine
     {
         const int MIN_BET_AMOUNT = 1;
         const int LINE_MATCH_COUNTER = 1;
+        public const int BET_REDUCTION = 3;
         public const char LINE_TYPE_ALL = 'A';
         public const char LINE_TYPE_HOR = 'H';
         public const char LINE_TYPE_VER = 'V';
@@ -23,8 +24,7 @@ namespace Refactored_Slot_Machine
 
             if (keepPlaying == true)
             {
-                double storeBetAmount = UIMethods.GetBetAmount();
-                bank = bank + storeBetAmount;
+                bank = UIMethods.GetBetAmount();
                 UIMethods.WriteEmptyLine();
             }
 
@@ -36,7 +36,7 @@ namespace Refactored_Slot_Machine
             while (keepPlaying)
             {
                 int[,] arrayGen = LogicMethods.GetRandom2DArray();
-                //UIMethods.Print2DArray(arrayGen);
+                UIMethods.Print2DArray(arrayGen);
 
                 while (bank > MIN_BET_AMOUNT)
                 {
@@ -51,14 +51,14 @@ namespace Refactored_Slot_Machine
 
                         if (rowCounter >= LINE_MATCH_COUNTER)
                         {
-                            double increaseRowBetAmount = bank + rowCounter;
-                            UIMethods.PrintBetAmountIncrease(increaseRowBetAmount);
+                            bank = bank + rowCounter;
+                            UIMethods.PrintBetAmountIncrease(bank);
                         }
 
                         else
                         {
-                            double decreaseRowBetAmount = bank - rowCounter;
-                            UIMethods.PrintBetAmountDecrease(decreaseRowBetAmount);
+                            bank = bank - BET_REDUCTION;
+                            UIMethods.PrintBetAmountDecrease(bank);
                         }
                     }
                     UIMethods.WriteEmptyLine();
@@ -72,14 +72,14 @@ namespace Refactored_Slot_Machine
 
                         if (columnCounter >= LINE_MATCH_COUNTER)
                         {
-                            double increaseColumnBetAmount = bank + columnCounter;
-                            UIMethods.PrintBetAmountIncrease(increaseColumnBetAmount);
+                            bank = bank + columnCounter;
+                            UIMethods.PrintBetAmountIncrease(bank);
                         }
 
                         else
                         {
-                            double decreaseColumnBetAmount = bank - columnCounter;
-                            UIMethods.PrintBetAmountDecrease(decreaseColumnBetAmount);
+                            bank = bank - BET_REDUCTION;
+                            UIMethods.PrintBetAmountDecrease(bank);
                         }
                     }
                     UIMethods.WriteEmptyLine();
@@ -91,14 +91,14 @@ namespace Refactored_Slot_Machine
 
                         if (diagonalCounter >= LINE_MATCH_COUNTER)
                         {
-                            double increaseDiagonalBetAmount = bank + diagonalCounter;
-                            UIMethods.PrintBetAmountIncrease(increaseDiagonalBetAmount);
+                            bank = bank + diagonalCounter;
+                            UIMethods.PrintBetAmountIncrease(bank);
                         }
 
                         else
                         {
-                            double decreaseDiagonalBetAmount = bank - diagonalCounter;
-                            UIMethods.PrintBetAmountDecrease(decreaseDiagonalBetAmount);
+                            bank = bank - LINE_MATCH_COUNTER;
+                            UIMethods.PrintBetAmountDecrease(bank);
                         }
                     }
                     UIMethods.WriteEmptyLine();

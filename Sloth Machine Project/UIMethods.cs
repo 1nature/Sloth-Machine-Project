@@ -46,12 +46,14 @@ namespace Sloth_Machine_Project
 
         public static void PrintBetAmountIncrease(double amount)
         {
+            UIMethods.WriteEmptyLine();
             Console.WriteLine("You have produced at least a winning row combination");
             Console.WriteLine($"Your bet amount has increased to: ${amount}");
         }
 
         public static void PrintBetAmountDecrease(double amount)
         {
+            UIMethods.WriteEmptyLine();
             Console.WriteLine("You have not produced a winning row combination");
             Console.WriteLine($"Your bet amount has reduced to: ${amount}");
         }
@@ -63,8 +65,6 @@ namespace Sloth_Machine_Project
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    //arrayNumbers[row, column] = generator.Next(MIN_RAND_NUMBER, MAX_RAND_NUMBER + 1);
-                    //use the index or print the index like it is in the main array. Do not print the whole array
                     Console.WriteLine($"{arrayDisplay[i,j]}");
                 }
                 Console.WriteLine();

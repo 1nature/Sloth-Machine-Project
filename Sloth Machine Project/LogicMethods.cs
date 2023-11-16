@@ -1,4 +1,6 @@
-﻿namespace Sloth_Machine_Project
+﻿using Microsoft.VisualBasic;
+
+namespace Sloth_Machine_Project
 {
     public static class LogicMethods
     {
@@ -25,7 +27,7 @@
 
         public static int RowImplementation(int[,] slotArray)
         {
-            bool lineMatch = true; //maybe this is not a better way to start
+            bool lineMatch = false;//true;
             int horizontalRowCounter = 0;
 
             for (int rowIndex = 0; rowIndex < NUMBER_OF_ROWS; rowIndex++)
@@ -34,13 +36,10 @@
                 {
                     if (slotArray[rowIndex, 0] != slotArray[rowIndex, columnIndex])
                     {
-                        lineMatch = false;
-                        break;
-                    }
-
-                    else if (slotArray[rowIndex, 0] == slotArray[rowIndex, columnIndex])
-                    {
-                        lineMatch = true;
+                        if (!lineMatch)
+                        {
+                            break;
+                        }
                     }
                 }
 
@@ -54,23 +53,19 @@
 
         public static int ColumnImplementation(int[,] slotArray)
         {
-            bool lineMatch = true;
+            bool lineMatch = false;//true;
             int verticalColumnCounter = 0;
 
             for (int rowIndex = 0; rowIndex < NUMBER_OF_ROWS; rowIndex++)
             {
                 for (int columnIndex = 1; columnIndex < NUMBER_OF_COLUMNS; columnIndex++)
                 {
-                    //Michael suggested that the line of code below will lead to implementation error
-                    //He suggested that that rowIndex should come first and not columnIndex
-                    if (slotArray[columnIndex, 0] != slotArray[rowIndex, columnIndex])
+                    if (slotArray[rowIndex, 0] != slotArray[columnIndex, rowIndex])
                     {
-                        lineMatch = false;
-                    }
-
-                    else if (slotArray[columnIndex, 0] == slotArray[rowIndex, columnIndex])
-                    {
-                        lineMatch = true;
+                        if (!lineMatch)
+                        {
+                            break;
+                        }
                     }
                 }
 
@@ -84,7 +79,7 @@
 
         public static int DiagonalImplementation(int[,] slotArray)
         {
-            bool lineMatch = true;
+            bool lineMatch = false;//true;
             int diagonalOneCounter = 0;
             int diagonalTwoCounter = 0;
             int diagonalLength = 2;
@@ -93,13 +88,8 @@
             {
                 if (slotArray[diagonalIndex, diagonalIndex] != slotArray[diagonalIndex + 1, diagonalIndex + 1])
                 {
-                    lineMatch = false;
+                    if (!lineMatch)
                     break;
-                }
-
-                else if (slotArray[diagonalIndex, diagonalIndex] == slotArray[diagonalIndex + 1, diagonalIndex + 1])
-                {
-                    lineMatch = true;
                 }
 
                 if (lineMatch)
@@ -109,12 +99,8 @@
 
                 if (slotArray[diagonalIndex, 2 - diagonalIndex] != slotArray[diagonalIndex, 2 - diagonalIndex])
                 {
-                    lineMatch = false;
-                }
-
-                else if (slotArray[diagonalIndex, 2 - diagonalIndex] == slotArray[diagonalIndex, 2 - diagonalIndex])
-                {
-                    lineMatch = false;
+                    if (!lineMatch)
+                        break;
                 }
 
                 if (lineMatch)
@@ -124,9 +110,6 @@
             }
             return diagonalOneCounter + diagonalTwoCounter;
         }
-
-    }// Not done with the diagonal
-    //still need to work on the deduction or win counter/amount
-    //still need to print out the 2D array output
+    }
 }
 
