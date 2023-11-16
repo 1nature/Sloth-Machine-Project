@@ -25,16 +25,22 @@
 
         public static int RowImplementation(int[,] slotArray)
         {
-            bool lineMatch = true;
+            bool lineMatch = true; //maybe this is not a better way to start
             int horizontalRowCounter = 0;
 
             for (int rowIndex = 0; rowIndex < NUMBER_OF_ROWS; rowIndex++)
             {
-                for (int columnIndex = 0; columnIndex < NUMBER_OF_COLUMNS; columnIndex++)
+                for (int columnIndex = 1; columnIndex < NUMBER_OF_COLUMNS; columnIndex++)
                 {
                     if (slotArray[rowIndex, 0] != slotArray[rowIndex, columnIndex])
                     {
                         lineMatch = false;
+                        break;
+                    }
+
+                    else if (slotArray[rowIndex, 0] == slotArray[rowIndex, columnIndex])
+                    {
+                        lineMatch = true;
                     }
                 }
 
@@ -53,12 +59,18 @@
 
             for (int rowIndex = 0; rowIndex < NUMBER_OF_ROWS; rowIndex++)
             {
-                for (int columnIndex = 0; columnIndex < NUMBER_OF_COLUMNS; columnIndex++)
+                for (int columnIndex = 1; columnIndex < NUMBER_OF_COLUMNS; columnIndex++)
                 {
-
+                    //Michael suggested that the line of code below will lead to implementation error
+                    //He suggested that that rowIndex should come first and not columnIndex
                     if (slotArray[columnIndex, 0] != slotArray[rowIndex, columnIndex])
                     {
                         lineMatch = false;
+                    }
+
+                    else if (slotArray[columnIndex, 0] == slotArray[rowIndex, columnIndex])
+                    {
+                        lineMatch = true;
                     }
                 }
 
@@ -75,13 +87,19 @@
             bool lineMatch = true;
             int diagonalOneCounter = 0;
             int diagonalTwoCounter = 0;
-            int diagonalLength = 3;
+            int diagonalLength = 2;
 
             for (int diagonalIndex = 0; diagonalIndex < diagonalLength; diagonalIndex++)
             {
-                if (slotArray[diagonalIndex, diagonalIndex] != slotArray[diagonalIndex, diagonalIndex])
+                if (slotArray[diagonalIndex, diagonalIndex] != slotArray[diagonalIndex + 1, diagonalIndex + 1])
                 {
                     lineMatch = false;
+                    break;
+                }
+
+                else if (slotArray[diagonalIndex, diagonalIndex] == slotArray[diagonalIndex + 1, diagonalIndex + 1])
+                {
+                    lineMatch = true;
                 }
 
                 if (lineMatch)
@@ -94,6 +112,11 @@
                     lineMatch = false;
                 }
 
+                else if (slotArray[diagonalIndex, 2 - diagonalIndex] == slotArray[diagonalIndex, 2 - diagonalIndex])
+                {
+                    lineMatch = false;
+                }
+
                 if (lineMatch)
                 {
                     diagonalTwoCounter++;
@@ -102,6 +125,8 @@
             return diagonalOneCounter + diagonalTwoCounter;
         }
 
-    }
+    }// Not done with the diagonal
+    //still need to work on the deduction or win counter/amount
+    //still need to print out the 2D array output
 }
 

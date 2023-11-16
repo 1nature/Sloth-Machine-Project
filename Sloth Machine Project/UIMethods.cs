@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -61,7 +63,9 @@ namespace Sloth_Machine_Project
             {
                 for (int j = 0; j < 3; j++)
                 {
-                    Console.WriteLine($"{arrayDisplay}");
+                    //arrayNumbers[row, column] = generator.Next(MIN_RAND_NUMBER, MAX_RAND_NUMBER + 1);
+                    //use the index or print the index like it is in the main array. Do not print the whole array
+                    Console.WriteLine($"{arrayDisplay[i,j]}");
                 }
                 Console.WriteLine();
             }
