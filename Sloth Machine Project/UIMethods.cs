@@ -85,37 +85,13 @@ namespace Sloth_Machine_Project
             return (betDecision == BET_DECISION_YES);
         }
 
-        public static void MakeAnotherBet()
+        public static bool MakeAnotherBet()
         {
-            bool theBetDecision = UIMethods.MakeBetDecision();
+            Console.WriteLine("*********************************************");
+            Console.WriteLine("Enter '1' to make another bet, or '0' to quit the game.");
+            int newBet = int.Parse(Console.ReadLine());
             UIMethods.WriteEmptyLine();
-
-            if (theBetDecision == false)
-            {
-                Console.WriteLine("You have decided to quit this game.");
-            }
-
-            if (theBetDecision == true)
-            {
-                UIMethods.WriteEmptyLine();
-                bool valid = false;
-                Console.WriteLine("Please enter the dollar amount you want to bet\n");
-                double betAmount = double.Parse(Console.ReadLine());
-                while (!valid)
-                {
-                    if (betAmount < MIN_BET_AMOUNT)
-                    {
-                        Console.WriteLine("Please enter a higher bet amount");
-                        betAmount = double.Parse(Console.ReadLine());
-                    }
-                    else
-                    {
-                        valid = true;
-                    }
-                }
-
-            }
-
+            return (newBet == BET_DECISION_YES);
         }
 
         public static double GetBetAmount()

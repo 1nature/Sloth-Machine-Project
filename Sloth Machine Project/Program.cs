@@ -16,7 +16,6 @@ namespace Refactored_Slot_Machine
         static void Main(string[] args)
         {
             bool keepPlaying = true;
-            bool endTheGame = true;//false;
             double bank = 0;
 
             UIMethods.ShowWelcomeToTheGame();
@@ -109,17 +108,20 @@ namespace Refactored_Slot_Machine
 
                 if (bank <= MIN_BET_AMOUNT)
                 {
-                    endTheGame = UIMethods.MakeBetDecision();
+                    keepPlaying = UIMethods.MakeAnotherBet();
 
-                    if (endTheGame)
+                    if (keepPlaying)
                     {
-                        keepPlaying = true;
+                        bank = UIMethods.GetBetAmount();
+                        UIMethods.WriteEmptyLine();
                     }
 
                     else
                     {
                         keepPlaying = false;
+                        Environment.Exit(0);
                     }
+
                 }
             }
         }
