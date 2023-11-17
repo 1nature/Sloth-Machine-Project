@@ -27,7 +27,7 @@ namespace Sloth_Machine_Project
 
         public static int RowImplementation(int[,] slotArray)
         {
-            bool lineMatch = false;//true;
+            bool lineMatch = true;
             int horizontalRowCounter = 0;
 
             for (int rowIndex = 0; rowIndex < NUMBER_OF_ROWS; rowIndex++)
@@ -36,10 +36,8 @@ namespace Sloth_Machine_Project
                 {
                     if (slotArray[rowIndex, 0] != slotArray[rowIndex, columnIndex])
                     {
-                        if (!lineMatch)
-                        {
-                            break;
-                        }
+                        lineMatch = false;
+                        break;
                     }
                 }
 
@@ -53,7 +51,7 @@ namespace Sloth_Machine_Project
 
         public static int ColumnImplementation(int[,] slotArray)
         {
-            bool lineMatch = false;//true;
+            bool lineMatch = true;
             int verticalColumnCounter = 0;
 
             for (int rowIndex = 0; rowIndex < NUMBER_OF_ROWS; rowIndex++)
@@ -62,10 +60,7 @@ namespace Sloth_Machine_Project
                 {
                     if (slotArray[rowIndex, 0] != slotArray[columnIndex, rowIndex])
                     {
-                        if (!lineMatch)
-                        {
-                            break;
-                        }
+                        lineMatch = false; break;
                     }
                 }
 
@@ -79,7 +74,7 @@ namespace Sloth_Machine_Project
 
         public static int DiagonalImplementation(int[,] slotArray)
         {
-            bool lineMatch = false;//true;
+            bool lineMatch = true;
             int diagonalOneCounter = 0;
             int diagonalTwoCounter = 0;
             int diagonalLength = 2;
@@ -88,8 +83,7 @@ namespace Sloth_Machine_Project
             {
                 if (slotArray[diagonalIndex, diagonalIndex] != slotArray[diagonalIndex + 1, diagonalIndex + 1])
                 {
-                    if (!lineMatch)
-                    break;
+                    lineMatch |= false; break;
                 }
 
                 if (lineMatch)
@@ -99,8 +93,7 @@ namespace Sloth_Machine_Project
 
                 if (slotArray[diagonalIndex, 2 - diagonalIndex] != slotArray[diagonalIndex, 2 - diagonalIndex])
                 {
-                    if (!lineMatch)
-                        break;
+                    lineMatch = false; break;
                 }
 
                 if (lineMatch)

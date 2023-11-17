@@ -1,4 +1,6 @@
 ﻿using Sloth_Machine_Project;
+using System.Runtime.CompilerServices;
+
 namespace Refactored_Slot_Machine
 {
     internal class Program
@@ -14,6 +16,7 @@ namespace Refactored_Slot_Machine
         static void Main(string[] args)
         {
             bool keepPlaying = true;
+            bool endTheGame = true;//false;
             double bank = 0;
 
             UIMethods.ShowWelcomeToTheGame();
@@ -28,7 +31,7 @@ namespace Refactored_Slot_Machine
                 UIMethods.WriteEmptyLine();
             }
 
-            else 
+            else
             {
                 Console.WriteLine("You have decided not to make a bet.");
             }
@@ -102,6 +105,21 @@ namespace Refactored_Slot_Machine
                         }
                     }
                     UIMethods.WriteEmptyLine();
+                }
+
+                if (bank <= MIN_BET_AMOUNT)
+                {
+                    endTheGame = UIMethods.MakeBetDecision();
+
+                    if (endTheGame)
+                    {
+                        keepPlaying = true;
+                    }
+
+                    else
+                    {
+                        keepPlaying = false;
+                    }
                 }
             }
         }
