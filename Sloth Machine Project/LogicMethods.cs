@@ -36,7 +36,7 @@ namespace Sloth_Machine_Project
                 {
                     if (slotArray[rowIndex, 0] != slotArray[rowIndex, columnIndex])
                     {
-                        lineMatch = false;
+                        lineMatch = true;
                         break;
                     }
                 }
@@ -48,7 +48,11 @@ namespace Sloth_Machine_Project
             }
             return horizontalRowCounter;
         }
-
+        /// <summary>
+        /// Calculates the number of winning Columns
+        /// </summary>
+        /// <param name="slotArray">GameArray</param>
+        /// <returns>number of winning Columns</returns>
         public static int ColumnImplementation(int[,] slotArray)
         {
             bool lineMatch = true;
@@ -58,7 +62,7 @@ namespace Sloth_Machine_Project
             {
                 for (int columnIndex = 1; columnIndex < NUMBER_OF_COLUMNS; columnIndex++)
                 {
-                    if (slotArray[rowIndex, 0] != slotArray[columnIndex, rowIndex])
+                    if (slotArray[rowIndex, 0] != slotArray[columnIndex, rowIndex]) //change the order
                     {
                         lineMatch = false; break;
                     }

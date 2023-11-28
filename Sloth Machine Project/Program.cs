@@ -37,7 +37,7 @@ namespace Refactored_Slot_Machine
 
             while (keepPlaying)
             {
-                int[,] arrayGen = LogicMethods.GetRandom2DArray();
+                int[,] arrayGen = { { 1, 2, 1 }, { 1, 1, 1 }, { 1, 1, 1 } }; //TODO: LogicMethods.GetRandom2DArray();
                 UIMethods.Print2DArray(arrayGen);
 
                 while (bank > MIN_BET_AMOUNT)
@@ -49,11 +49,10 @@ namespace Refactored_Slot_Machine
                     {
                         int numberOfRowMatches = LogicMethods.RowImplementation(arrayGen);
 
-                        int rowCounter = numberOfRowMatches;
-
-                        if (rowCounter >= LINE_MATCH_COUNTER)
+                        
+                        if (numberOfRowMatches >= LINE_MATCH_COUNTER)
                         {
-                            bank = bank + rowCounter;
+                            bank = bank + numberOfRowMatches;
                             UIMethods.PrintBetAmountIncrease(bank);
                         }
 
@@ -70,11 +69,9 @@ namespace Refactored_Slot_Machine
                     {
                         int numberOfColumnMatches = LogicMethods.ColumnImplementation(arrayGen);
 
-                        int columnCounter = numberOfColumnMatches;
-
-                        if (columnCounter >= LINE_MATCH_COUNTER)
+                        if (numberOfColumnMatches >= LINE_MATCH_COUNTER)
                         {
-                            bank = bank + columnCounter;
+                            bank = bank + numberOfColumnMatches;
                             UIMethods.PrintBetAmountIncrease(bank);
                         }
 
@@ -89,11 +86,10 @@ namespace Refactored_Slot_Machine
                     if (betSelection == LINE_TYPE_DIA)
                     {
                         int numberOfDiagonalMatches = LogicMethods.DiagonalImplementation(arrayGen);
-                        int diagonalCounter = numberOfDiagonalMatches;
 
-                        if (diagonalCounter >= LINE_MATCH_COUNTER)
+                        if (numberOfDiagonalMatches >= LINE_MATCH_COUNTER)
                         {
-                            bank = bank + diagonalCounter;
+                            bank = bank + numberOfDiagonalMatches;
                             UIMethods.PrintBetAmountIncrease(bank);
                         }
 
