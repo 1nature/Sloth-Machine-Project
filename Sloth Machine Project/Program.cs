@@ -17,7 +17,7 @@ namespace Refactored_Slot_Machine
         {
             bool keepPlaying = true;
             double bank = 0;
-
+            
             UIMethods.ShowWelcomeToTheGame();
             UIMethods.ShowGameDescription();
             UIMethods.WriteEmptyLine();
@@ -26,8 +26,8 @@ namespace Refactored_Slot_Machine
 
             if (keepPlaying == true)
             {
-                bank = UIMethods.GetBetAmount();
-                UIMethods.WriteEmptyLine();
+                    bank = UIMethods.GetBetAmount();
+                    UIMethods.WriteEmptyLine();
             }
 
             else
@@ -49,7 +49,7 @@ namespace Refactored_Slot_Machine
                     {
                         int numberOfRowMatches = LogicMethods.RowImplementation(arrayGen);
 
-                        
+
                         if (numberOfRowMatches >= LINE_MATCH_COUNTER)
                         {
                             bank = bank + numberOfRowMatches;
@@ -83,7 +83,7 @@ namespace Refactored_Slot_Machine
                     }
                     UIMethods.WriteEmptyLine();
 
-                    if (betSelection == LINE_TYPE_DIA)
+                    if (betSelection == LINE_TYPE_DIA || betSelection == LINE_TYPE_ALL)
                     {
                         int numberOfDiagonalMatches = LogicMethods.DiagonalImplementation(arrayGen);
 

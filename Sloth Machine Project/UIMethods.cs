@@ -65,7 +65,7 @@ namespace Sloth_Machine_Project
             {
                 for (int columnNumbers = 0; columnNumbers < 3; columnNumbers++)
                 {
-                    Console.Write($"{arrayDisplay[rowNumbers, columnNumbers]}");
+                    Console.Write($"{arrayDisplay[rowNumbers, columnNumbers] + "\t"}");
                 }
                 Console.WriteLine();
             }
