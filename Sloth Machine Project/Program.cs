@@ -85,11 +85,29 @@ namespace Refactored_Slot_Machine
 
                     if (betSelection == LINE_TYPE_DIA || betSelection == LINE_TYPE_ALL)
                     {
-                        int numberOfDiagonalMatches = LogicMethods.DiagonalImplementation(arrayGen);
+                        int firstDiagonalMatches = LogicMethods.DiagonalImplementation(arrayGen);
 
-                        if (numberOfDiagonalMatches >= LINE_MATCH_COUNTER)
+                        if (firstDiagonalMatches >= LINE_MATCH_COUNTER)
                         {
-                            bank = bank + numberOfDiagonalMatches;
+                            bank = bank + firstDiagonalMatches;
+                            UIMethods.PrintBetAmountIncrease(bank);
+                        }
+
+                        else
+                        {
+                            bank = bank - LINE_MATCH_COUNTER;
+                            UIMethods.PrintBetAmountDecrease(bank);
+                        }
+                    }
+                    UIMethods.WriteEmptyLine();
+
+                    if (betSelection == LINE_TYPE_DIA || betSelection == LINE_TYPE_ALL)
+                    {
+                        int secondDiagonalMatches = LogicMethods.SecondDiagonalImplementation(arrayGen);
+
+                        if (secondDiagonalMatches >= LINE_MATCH_COUNTER)
+                        {
+                            bank = bank + secondDiagonalMatches;
                             UIMethods.PrintBetAmountIncrease(bank);
                         }
 

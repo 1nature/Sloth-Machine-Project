@@ -86,7 +86,6 @@ namespace Sloth_Machine_Project
         {
             bool lineMatch = true;
             int diagonalOneCounter = 0;
-            int diagonalTwoCounter = 0;
             
             for (int diagonalIndex = 0; diagonalIndex < diagonalLength; diagonalIndex++)
             {
@@ -104,7 +103,17 @@ namespace Sloth_Machine_Project
                 {
                     diagonalOneCounter++;
                 }
+            }
+            return diagonalOneCounter;
+        }
 
+        public static int SecondDiagonalImplementation(int[,] slotArray)
+        {
+            bool lineMatch = true;
+            int diagonalTwoCounter = 0;
+
+            for (int diagonalIndex = 0; diagonalIndex < diagonalLength; diagonalIndex++)
+            {
                 if (slotArray[diagonalIndex, 2 - diagonalIndex] != slotArray[diagonalIndex, 2 - diagonalIndex])
                 {
                     lineMatch = false; break;
@@ -120,7 +129,7 @@ namespace Sloth_Machine_Project
                     diagonalTwoCounter++;
                 }
             }
-            return diagonalOneCounter + diagonalTwoCounter;
+            return diagonalTwoCounter;
         }
     }
 }
