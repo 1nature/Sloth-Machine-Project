@@ -61,11 +61,11 @@ namespace Sloth_Machine_Project
         public static void Print2DArray(int[,] arrayDisplay)
         {
 
-            for (int i = 0; i < 3; i++)
+            for (int rowNumbers = 0; rowNumbers < 3; rowNumbers++)
             {
-                for (int j = 0; j < 3; j++)
+                for (int columnNumbers = 0; columnNumbers < 3; columnNumbers++)
                 {
-                    Console.WriteLine($"{arrayDisplay[i,j]}");
+                    Console.Write($"{arrayDisplay[rowNumbers, columnNumbers]}");
                 }
                 Console.WriteLine();
             }

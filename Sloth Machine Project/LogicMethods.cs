@@ -48,11 +48,7 @@ namespace Sloth_Machine_Project
             }
             return horizontalRowCounter;
         }
-        /// <summary>
-        /// Calculates the number of winning Columns
-        /// </summary>
-        /// <param name="slotArray">GameArray</param>
-        /// <returns>number of winning Columns</returns>
+        
         public static int ColumnImplementation(int[,] slotArray)
         {
             bool lineMatch = true;
