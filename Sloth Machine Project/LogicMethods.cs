@@ -8,6 +8,7 @@ namespace Sloth_Machine_Project
         const int MAX_RAND_NUMBER = 20;
         const int NUMBER_OF_ROWS = 3;
         const int NUMBER_OF_COLUMNS = 3;
+        const int diagonalLength = 2;
 
         public static readonly Random generator = new Random();
 
@@ -86,8 +87,7 @@ namespace Sloth_Machine_Project
             bool lineMatch = true;
             int diagonalOneCounter = 0;
             int diagonalTwoCounter = 0;
-            int diagonalLength = 2;
-
+            
             for (int diagonalIndex = 0; diagonalIndex < diagonalLength; diagonalIndex++)
             {
                 if (slotArray[diagonalIndex, diagonalIndex] != slotArray[diagonalIndex + 1, diagonalIndex + 1])
