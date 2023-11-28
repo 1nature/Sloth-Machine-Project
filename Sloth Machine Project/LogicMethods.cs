@@ -36,8 +36,12 @@ namespace Sloth_Machine_Project
                 {
                     if (slotArray[rowIndex, 0] != slotArray[rowIndex, columnIndex])
                     {
-                        lineMatch = true;
+                        lineMatch = false;
                         break;
+                    }
+                    else 
+                    {
+                        lineMatch = true;
                     }
                 }
 
@@ -62,6 +66,11 @@ namespace Sloth_Machine_Project
                     {
                         lineMatch = false; break;
                     }
+
+                    else
+                    {
+                        lineMatch = true;
+                    }
                 }
 
                 if (lineMatch)
@@ -83,7 +92,12 @@ namespace Sloth_Machine_Project
             {
                 if (slotArray[diagonalIndex, diagonalIndex] != slotArray[diagonalIndex + 1, diagonalIndex + 1])
                 {
-                    lineMatch |= false; break;
+                    lineMatch = false; break;
+                }
+
+                else
+                {
+                    lineMatch = true;
                 }
 
                 if (lineMatch)
@@ -94,6 +108,11 @@ namespace Sloth_Machine_Project
                 if (slotArray[diagonalIndex, 2 - diagonalIndex] != slotArray[diagonalIndex, 2 - diagonalIndex])
                 {
                     lineMatch = false; break;
+                }
+
+                else
+                {
+                    lineMatch = true;
                 }
 
                 if (lineMatch)
