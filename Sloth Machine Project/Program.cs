@@ -42,12 +42,12 @@ namespace Refactored_Slot_Machine
 
                 while (bank > MIN_BET_AMOUNT)
                 {
-                    UIMethods.BettingLinesInstruction();
-                    char betSelection = UIMethods.BettingLinesResponse();
+                    UIMethods.ShowBettingLinesInstruction();
+                    char betSelection = UIMethods.GetBettingLinesResponse();
 
                     if (betSelection == LINE_TYPE_HOR || betSelection == LINE_TYPE_ALL)
                     {
-                        int numberOfRowMatches = LogicMethods.RowImplementation(arrayGen);
+                        int numberOfRowMatches = LogicMethods.CheckHorizontalLinesWinning(arrayGen);
 
 
                         if (numberOfRowMatches >= LINE_MATCH_COUNTER)
@@ -67,7 +67,7 @@ namespace Refactored_Slot_Machine
 
                     if (betSelection == LINE_TYPE_VER || betSelection == LINE_TYPE_ALL)
                     {
-                        int numberOfColumnMatches = LogicMethods.ColumnImplementation(arrayGen);
+                        int numberOfColumnMatches = LogicMethods.CheckVerticalLinesWinning(arrayGen);
 
                         if (numberOfColumnMatches >= LINE_MATCH_COUNTER)
                         {
@@ -85,7 +85,7 @@ namespace Refactored_Slot_Machine
 
                     if (betSelection == LINE_TYPE_DIA || betSelection == LINE_TYPE_ALL)
                     {
-                        int firstDiagonalMatches = LogicMethods.DiagonalImplementation(arrayGen);
+                        int firstDiagonalMatches = LogicMethods.CheckDiagonalOneLineWinning(arrayGen);
 
                         if (firstDiagonalMatches >= LINE_MATCH_COUNTER)
                         {
@@ -103,7 +103,7 @@ namespace Refactored_Slot_Machine
 
                     if (betSelection == LINE_TYPE_DIA || betSelection == LINE_TYPE_ALL)
                     {
-                        int secondDiagonalMatches = LogicMethods.SecondDiagonalImplementation(arrayGen);
+                        int secondDiagonalMatches = LogicMethods.CheckDiagonalTwoLineWinning(arrayGen);
 
                         if (secondDiagonalMatches >= LINE_MATCH_COUNTER)
                         {

@@ -11,13 +11,19 @@ namespace Sloth_Machine_Project
     public static class UIMethods
     {
         const int BET_DECISION_YES = 1;
-        const int MIN_BET_AMOUNT = 1;
 
+        /// <summary>
+        /// Shows welcome to the game message
+        /// </summary>
+        
         public static void ShowWelcomeToTheGame()
         {
             Console.WriteLine("Welcome to the game\n");
         }
 
+        /// <summary>
+        /// Shows the game instruction to the user
+        /// </summary>
         public static void ShowGameDescription()
         {
             Console.WriteLine("There are three horizontal and three vertical lines available to bet on." +
@@ -27,7 +33,10 @@ namespace Sloth_Machine_Project
                            "the third attempt.");
         }
 
-        public static void BettingLinesInstruction()
+        /// <summary>
+        /// Shows the betting lines instruction to the user
+        /// </summary>
+        public static void ShowBettingLinesInstruction()
         {
             Console.WriteLine();
             Console.WriteLine("***************************************");
@@ -38,12 +47,20 @@ namespace Sloth_Machine_Project
             Console.WriteLine();
         }
 
-        public static char BettingLinesResponse()
+        /// <summary>
+        /// Gets the response of the user whether to bet or not
+        /// </summary>
+        /// <returns>the betting choice of the user</returns>
+        public static char GetBettingLinesResponse()
         {
             char betLineChoice = Console.ReadKey().KeyChar; 
             return betLineChoice;
         }
 
+        /// <summary>
+        /// Prints the winning message to the user
+        /// </summary>
+        /// <param name="amount"></param>
         public static void PrintBetAmountIncrease(double amount)
         {
             UIMethods.WriteEmptyLine();
@@ -51,6 +68,10 @@ namespace Sloth_Machine_Project
             Console.WriteLine($"Your bet amount has increased to: ${amount}");
         }
 
+        /// <summary>
+        /// Prints the losing message to the user
+        /// </summary>
+        /// <param name="amount"></param>
         public static void PrintBetAmountDecrease(double amount)
         {
             UIMethods.WriteEmptyLine();
@@ -58,6 +79,10 @@ namespace Sloth_Machine_Project
             Console.WriteLine($"Your bet amount has reduced to: ${amount}");
         }
 
+        /// <summary>
+        /// Prints a 2D arrays of numbers for betting
+        /// </summary>
+        /// <param name="arrayDisplay"></param>
         public static void Print2DArray(int[,] arrayDisplay)
         {
 
@@ -72,11 +97,18 @@ namespace Sloth_Machine_Project
             Console.WriteLine();
         }
 
+        /// <summary>
+        /// Creates a new line space for code clarity
+        /// </summary>
         public static void WriteEmptyLine()
         {
             Console.WriteLine();
         }
 
+        /// <summary>
+        /// Obtains user betting decision input
+        /// </summary>
+        /// <returns>user bet decision</returns>
         public static bool MakeBetDecision()
         {
             Console.WriteLine("Enter '1' to make a bet, or '0' to quit.");
@@ -85,6 +117,10 @@ namespace Sloth_Machine_Project
             return (betDecision == BET_DECISION_YES);
         }
 
+        /// <summary>
+        /// Obtains user input on whether to make more bets
+        /// </summary>
+        /// <returns>user decision to bet more or not</returns>
         public static bool MakeAnotherBet()
         {
             Console.WriteLine("*********************************************");
@@ -94,6 +130,10 @@ namespace Sloth_Machine_Project
             return (newBet == BET_DECISION_YES);
         }
 
+        /// <summary>
+        /// Obtains the amount the user wishes to bet to play the game
+        /// </summary>
+        /// <returns>the amount</returns>
         public static double GetBetAmount()
         {
             Console.WriteLine("Please enter the dollar amount you want to bet\n");

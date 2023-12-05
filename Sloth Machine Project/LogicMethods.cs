@@ -15,6 +15,10 @@ namespace Sloth_Machine_Project
 
         public static readonly Random generator = new Random();
 
+        /// <summary>
+        /// Random array numbers generator
+        /// </summary>
+        /// <returns>random array numbers</returns>
         public static int[,] GetRandom2DArray()
         {
             int[,] arrayNumbers = new int[NUMBER_OF_ROWS, NUMBER_OF_COLUMNS];
@@ -29,7 +33,12 @@ namespace Sloth_Machine_Project
             return arrayNumbers;
         }
 
-        public static int RowImplementation(int[,] slotArray)
+        /// <summary>
+        /// Checks whether the horizontal lines match after a user bet
+        /// </summary>
+        /// <param name="slotArray"></param>
+        /// <returns>the number of winning lines</returns>
+        public static int CheckHorizontalLinesWinning(int[,] slotArray)
         {
             bool lineMatch = true;
             int horizontalRowCounter = 0;
@@ -57,7 +66,12 @@ namespace Sloth_Machine_Project
             return horizontalRowCounter;
         }
 
-        public static int ColumnImplementation(int[,] slotArray)
+        /// <summary>
+        /// Checks whether the vertical lines match after a user bet
+        /// </summary>
+        /// <param name="slotArray"></param>
+        /// <returns>the number of winning lines</returns>
+        public static int CheckVerticalLinesWinning(int[,] slotArray)
         {
             bool lineMatch = true;
             int verticalColumnCounter = 0;
@@ -86,7 +100,12 @@ namespace Sloth_Machine_Project
             return verticalColumnCounter;
         }
 
-        public static int DiagonalImplementation(int[,] slotArray)
+        /// <summary>
+        /// Checks whether the left-to-right diagonal lines match after a user bet
+        /// </summary>
+        /// <param name="slotArray"></param>
+        /// <returns>the number of winning lines</returns>
+        public static int CheckDiagonalOneLineWinning(int[,] slotArray)
         {
             bool lineMatch = true;
             int diagonalOneCounter = 0;
@@ -112,7 +131,12 @@ namespace Sloth_Machine_Project
             return diagonalOneCounter;
         }
 
-        public static int SecondDiagonalImplementation(int[,] slotArray)
+        /// <summary>
+        /// Checks whether the right-to-left diagonal lines match after a user bet
+        /// </summary>
+        /// <param name="slotArray"></param>
+        /// <returns>the number of winning lines</returns>
+        public static int CheckDiagonalTwoLineWinning(int[,] slotArray)
         {
             bool lineMatch = true;
             int diagonalTwoCounter = 0;
