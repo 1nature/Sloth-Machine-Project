@@ -8,7 +8,10 @@ namespace Sloth_Machine_Project
         const int MAX_RAND_NUMBER = 20;
         const int NUMBER_OF_ROWS = 3;
         const int NUMBER_OF_COLUMNS = 3;
-        const int diagonalLength = 2;
+        const int DIAGONALONELENGTH = 2;
+        const int DIAGONALTWOLENGTH = 3;
+        const int SINGLEINCREMENT = 1;
+
 
         public static readonly Random generator = new Random();
 
@@ -40,7 +43,7 @@ namespace Sloth_Machine_Project
                         lineMatch = false;
                         break;
                     }
-                    else 
+                    else
                     {
                         lineMatch = true;
                     }
@@ -53,7 +56,7 @@ namespace Sloth_Machine_Project
             }
             return horizontalRowCounter;
         }
-        
+
         public static int ColumnImplementation(int[,] slotArray)
         {
             bool lineMatch = true;
@@ -63,7 +66,8 @@ namespace Sloth_Machine_Project
             {
                 for (int columnIndex = 1; columnIndex < NUMBER_OF_COLUMNS; columnIndex++)
                 {
-                    if (slotArray[rowIndex, 0] != slotArray[columnIndex, rowIndex]) //change the order
+                    if (slotArray[rowIndex, 0] != slotArray[columnIndex, rowIndex])
+                    //change the order
                     {
                         lineMatch = false; break;
                     }
@@ -86,10 +90,10 @@ namespace Sloth_Machine_Project
         {
             bool lineMatch = true;
             int diagonalOneCounter = 0;
-            
-            for (int diagonalIndex = 0; diagonalIndex < diagonalLength; diagonalIndex++)
+
+            for (int diagonalIndex = 0; diagonalIndex < DIAGONALONELENGTH; diagonalIndex++)
             {
-                if (slotArray[diagonalIndex, diagonalIndex] != slotArray[diagonalIndex + 1, diagonalIndex + 1])
+                if (slotArray[diagonalIndex, diagonalIndex] != slotArray[diagonalIndex + SINGLEINCREMENT, diagonalIndex + SINGLEINCREMENT])
                 {
                     lineMatch = false; break;
                 }
@@ -98,12 +102,13 @@ namespace Sloth_Machine_Project
                 {
                     lineMatch = true;
                 }
-
-                if (lineMatch)
-                {
-                    diagonalOneCounter++;
-                }
             }
+
+            if (lineMatch)
+            {
+                diagonalOneCounter++;
+            }
+
             return diagonalOneCounter;
         }
 
@@ -112,9 +117,9 @@ namespace Sloth_Machine_Project
             bool lineMatch = true;
             int diagonalTwoCounter = 0;
 
-            for (int diagonalIndex = 0; diagonalIndex < diagonalLength; diagonalIndex++)
+            for (int diagonalIndex = 0; diagonalIndex < DIAGONALTWOLENGTH; diagonalIndex++)
             {
-                if (slotArray[diagonalIndex, 2 - diagonalIndex] != slotArray[diagonalIndex, 2 - diagonalIndex])
+                if (slotArray[diagonalIndex, DIAGONALONELENGTH - diagonalIndex] != slotArray[diagonalIndex, DIAGONALONELENGTH - diagonalIndex])
                 {
                     lineMatch = false; break;
                 }
@@ -123,12 +128,13 @@ namespace Sloth_Machine_Project
                 {
                     lineMatch = true;
                 }
-
-                if (lineMatch)
-                {
-                    diagonalTwoCounter++;
-                }
             }
+
+            if (lineMatch)
+            {
+                diagonalTwoCounter++;
+            }
+
             return diagonalTwoCounter;
         }
     }
