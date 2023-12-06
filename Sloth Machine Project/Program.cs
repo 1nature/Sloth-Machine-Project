@@ -37,7 +37,7 @@ namespace Refactored_Slot_Machine
 
             while (keepPlaying)
             {
-                int[,] arrayGen = { { 1, 2, 3 }, { 1, 2, 3 }, { 1, 2, 3 } };//LogicMethods.GetRandom2DArray();
+                int[,] arrayGen = LogicMethods.GetRandom2DArray();
                 UIMethods.Print2DArray(arrayGen);
 
                 while (bank > MIN_BET_AMOUNT)

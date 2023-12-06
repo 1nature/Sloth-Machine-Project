@@ -91,14 +91,14 @@ namespace Sloth_Machine_Project
                         lineMatch = true;
                     }
                 }
-
                 if (lineMatch)
                 {
                     verticalColumnCounter++;
                 }
+                
             }
             return verticalColumnCounter;
-        }
+        }    
 
         /// <summary>
         /// Checks whether the left-to-right diagonal lines match after a user bet
