@@ -6,9 +6,10 @@
         const int MAX_RAND_NUMBER = 20;
         const int NUMBER_OF_ROWS = 3;
         const int NUMBER_OF_COLUMNS = 3;
-        const int DIAGONALONELENGTH = 2;
+        const int DIAGONALONELENGTH = 3;
         const int DIAGONALTWOLENGTH = 3;
         const int SINGLEINCREMENT = 1;
+        const int DIAGONAL_ONE_MAX_INDEX = 2;
 
 
         public static readonly Random generator = new Random();
@@ -137,10 +138,10 @@
         {
             bool lineMatch = true;
             int diagonalTwoCounter = 0;
-
+       
             for (int diagonalIndex = 0; diagonalIndex < DIAGONALTWOLENGTH; diagonalIndex++)
             {
-                if (slotArray[diagonalIndex, DIAGONALONELENGTH - diagonalIndex] != slotArray[diagonalIndex, DIAGONALONELENGTH - diagonalIndex])
+                if (slotArray[diagonalIndex, DIAGONAL_ONE_MAX_INDEX - diagonalIndex] != slotArray[diagonalIndex, DIAGONAL_ONE_MAX_INDEX - diagonalIndex])
                 {
                     lineMatch = false; break;
                 }
