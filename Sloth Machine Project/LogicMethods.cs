@@ -1,6 +1,4 @@
-﻿using Microsoft.VisualBasic;
-
-namespace Sloth_Machine_Project
+﻿namespace Sloth_Machine_Project
 {
     public static class LogicMethods
     {
@@ -78,10 +76,9 @@ namespace Sloth_Machine_Project
 
             for (int rowIndex = 0; rowIndex < NUMBER_OF_ROWS; rowIndex++)
             {
-                for (int columnIndex = 1; columnIndex < NUMBER_OF_COLUMNS; columnIndex++)
+                for (int columnIndex = 0; columnIndex < NUMBER_OF_COLUMNS; columnIndex++)
                 {
-                    if (slotArray[rowIndex, 0] != slotArray[columnIndex, rowIndex])
-                    //change the order
+                    if (slotArray[0, rowIndex] != slotArray[columnIndex, rowIndex])
                     {
                         lineMatch = false; break;
                     }
@@ -95,10 +92,10 @@ namespace Sloth_Machine_Project
                 {
                     verticalColumnCounter++;
                 }
-                
+
             }
             return verticalColumnCounter;
-        }    
+        }
 
         /// <summary>
         /// Checks whether the left-to-right diagonal lines match after a user bet
