@@ -44,7 +44,7 @@
 
             for (int rowIndex = 0; rowIndex < NUMBER_OF_ROWS; rowIndex++)
             {
-                for (int columnIndex = 1; columnIndex < NUMBER_OF_COLUMNS; columnIndex++)
+                for (int columnIndex = 0; columnIndex < NUMBER_OF_COLUMNS; columnIndex++)
                 {
                     if (slotArray[rowIndex, 0] != slotArray[rowIndex, columnIndex])
                     {
@@ -75,11 +75,11 @@
             bool lineMatch = true;
             int verticalColumnCounter = 0;
 
-            for (int rowIndex = 0; rowIndex < NUMBER_OF_ROWS; rowIndex++)
+            for (int columnIndex = 0; columnIndex < NUMBER_OF_ROWS; columnIndex++)
             {
-                for (int columnIndex = 0; columnIndex < NUMBER_OF_COLUMNS; columnIndex++)
+                for (int rowIndex = 0; rowIndex < NUMBER_OF_COLUMNS; rowIndex++)
                 {
-                    if (slotArray[0, rowIndex] != slotArray[columnIndex, rowIndex])
+                    if (slotArray[0, columnIndex] != slotArray[rowIndex, columnIndex])
                     {
                         lineMatch = false; break;
                     }
@@ -138,7 +138,7 @@
         {
             bool lineMatch = true;
             int diagonalTwoCounter = 0;
-       
+
             for (int diagonalIndex = 0; diagonalIndex < DIAGONALTWOLENGTH; diagonalIndex++)
             {
                 if (slotArray[diagonalIndex, DIAGONAL_ONE_MAX_INDEX - diagonalIndex] != slotArray[diagonalIndex, DIAGONAL_ONE_MAX_INDEX - diagonalIndex])
