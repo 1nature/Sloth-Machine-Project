@@ -1,5 +1,4 @@
 ﻿using Sloth_Machine_Project;
-using System.Runtime.CompilerServices;
 
 namespace Refactored_Slot_Machine
 {
