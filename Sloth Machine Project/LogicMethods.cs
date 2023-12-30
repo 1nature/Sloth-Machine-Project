@@ -2,16 +2,6 @@
 {
     public static class LogicMethods
     {
-        const int MIN_RAND_NUMBER = 0;
-        const int MAX_RAND_NUMBER = 20;
-        const int NUMBER_OF_ROWS = 3;
-        const int NUMBER_OF_COLUMNS = 3;
-        const int DIAGONALONELENGTH = 3;
-        const int DIAGONALTWOLENGTH = 3;
-        const int SINGLEINCREMENT = 1;
-        const int DIAGONAL_ONE_MAX_INDEX = 2;
-
-
         public static readonly Random generator = new Random();
 
         /// <summary>
@@ -20,13 +10,13 @@
         /// <returns>random array numbers</returns>
         public static int[,] GetRandom2DArray()
         {
-            int[,] arrayNumbers = new int[NUMBER_OF_ROWS, NUMBER_OF_COLUMNS];
+            int[,] arrayNumbers = new int[Constants.NUMBER_OF_ROWS, Constants.NUMBER_OF_COLUMNS];
 
             for (int row = 0; row < arrayNumbers.GetLength(0); row++)
             {
                 for (int column = 0; column < arrayNumbers.GetLength(1); column++)
                 {
-                    arrayNumbers[row, column] = generator.Next(MIN_RAND_NUMBER, MAX_RAND_NUMBER + 1);
+                    arrayNumbers[row, column] = generator.Next(Constants.MIN_RAND_NUMBER, Constants.MAX_RAND_NUMBER + 1);
                 }
             }
             return arrayNumbers;
@@ -42,9 +32,9 @@
             bool lineMatch = true;
             int horizontalRowCounter = 0;
 
-            for (int rowIndex = 0; rowIndex < NUMBER_OF_ROWS; rowIndex++)
+            for (int rowIndex = 0; rowIndex <Constants.NUMBER_OF_ROWS; rowIndex++)
             {
-                for (int columnIndex = 0; columnIndex < NUMBER_OF_COLUMNS; columnIndex++)
+                for (int columnIndex = 0; columnIndex < Constants.NUMBER_OF_COLUMNS; columnIndex++)
                 {
                     if (slotArray[rowIndex, 0] != slotArray[rowIndex, columnIndex])
                     {
@@ -75,9 +65,9 @@
             bool lineMatch = true;
             int verticalColumnCounter = 0;
 
-            for (int columnIndex = 0; columnIndex < NUMBER_OF_ROWS; columnIndex++)
+            for (int columnIndex = 0; columnIndex < Constants.NUMBER_OF_ROWS; columnIndex++)
             {
-                for (int rowIndex = 0; rowIndex < NUMBER_OF_COLUMNS; rowIndex++)
+                for (int rowIndex = 0; rowIndex < Constants.NUMBER_OF_COLUMNS; rowIndex++)
                 {
                     if (slotArray[0, columnIndex] != slotArray[rowIndex, columnIndex])
                     {
@@ -107,9 +97,9 @@
             bool lineMatch = true;
             int diagonalOneCounter = 0;
 
-            for (int diagonalIndex = 0; diagonalIndex < DIAGONALONELENGTH; diagonalIndex++)
+            for (int diagonalIndex = 0; diagonalIndex < Constants.DIAGONALONELENGTH; diagonalIndex++)
             {
-                if (slotArray[diagonalIndex, diagonalIndex] != slotArray[diagonalIndex + SINGLEINCREMENT, diagonalIndex + SINGLEINCREMENT])
+                if (slotArray[diagonalIndex, diagonalIndex] != slotArray[diagonalIndex + Constants.SINGLEINCREMENT, diagonalIndex + Constants.SINGLEINCREMENT])
                 {
                     lineMatch = false; break;
                 }
@@ -137,9 +127,9 @@
             bool lineMatch = true;
             int diagonalTwoCounter = 0;
 
-            for (int diagonalIndex = 0; diagonalIndex < DIAGONALTWOLENGTH; diagonalIndex++)
+            for (int diagonalIndex = 0; diagonalIndex < Constants.DIAGONALTWOLENGTH; diagonalIndex++)
             {
-                if (slotArray[diagonalIndex, DIAGONAL_ONE_MAX_INDEX - diagonalIndex] != slotArray[diagonalIndex, DIAGONAL_ONE_MAX_INDEX - diagonalIndex])
+                if (slotArray[diagonalIndex, Constants.DIAGONAL_ONE_MAX_INDEX - diagonalIndex] != slotArray[diagonalIndex, Constants.DIAGONAL_ONE_MAX_INDEX - diagonalIndex])
                 {
                     lineMatch = false; break;
                 }

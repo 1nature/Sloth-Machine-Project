@@ -10,8 +10,6 @@ namespace Sloth_Machine_Project
 {
     public static class UIMethods
     {
-        const int BET_DECISION_YES = 1;
-
         /// <summary>
         /// Shows welcome to the game message
         /// </summary>
@@ -114,7 +112,7 @@ namespace Sloth_Machine_Project
             Console.WriteLine("Enter '1' to make a bet, or '0' to quit.");
             int betDecision = int.Parse(Console.ReadLine());
             UIMethods.WriteEmptyLine();
-            return (betDecision == BET_DECISION_YES);
+            return (betDecision == Constants.BET_DECISION_YES);
         }
 
         /// <summary>
@@ -127,7 +125,7 @@ namespace Sloth_Machine_Project
             Console.WriteLine("Enter '1' to make another bet, or '0' to quit the game.");
             int newBet = int.Parse(Console.ReadLine());
             UIMethods.WriteEmptyLine();
-            return (newBet == BET_DECISION_YES);
+            return (newBet == Constants.BET_DECISION_YES);
         }
 
         /// <summary>
