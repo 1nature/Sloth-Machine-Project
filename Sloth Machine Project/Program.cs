@@ -17,7 +17,7 @@ namespace Refactored_Slot_Machine
         {
             bool keepPlaying = true;
             double bank = 0;
-            
+
             UIMethods.ShowWelcomeToTheGame();
             UIMethods.ShowGameDescription();
             UIMethods.WriteEmptyLine();
@@ -26,10 +26,9 @@ namespace Refactored_Slot_Machine
 
             if (keepPlaying == true)
             {
-                    bank = UIMethods.GetBetAmount();
-                    UIMethods.WriteEmptyLine();
+                bank = UIMethods.GetBetAmount();
+                UIMethods.WriteEmptyLine();
             }
-
             else
             {
                 Console.WriteLine("You have decided not to make a bet.");
@@ -55,7 +54,6 @@ namespace Refactored_Slot_Machine
                             bank = bank + numberOfRowMatches;
                             UIMethods.PrintBetAmountIncrease(bank);
                         }
-
                         else
                         {
                             bank = bank - BET_REDUCTION;
@@ -74,7 +72,6 @@ namespace Refactored_Slot_Machine
                             bank = bank + numberOfColumnMatches;
                             UIMethods.PrintBetAmountIncrease(bank);
                         }
-
                         else
                         {
                             bank = bank - BET_REDUCTION;
@@ -92,7 +89,6 @@ namespace Refactored_Slot_Machine
                             bank = bank + firstDiagonalMatches;
                             UIMethods.PrintBetAmountIncrease(bank);
                         }
-
                         else
                         {
                             bank = bank - LINE_MATCH_COUNTER;
@@ -110,7 +106,6 @@ namespace Refactored_Slot_Machine
                             bank = bank + secondDiagonalMatches;
                             UIMethods.PrintBetAmountIncrease(bank);
                         }
-
                         else
                         {
                             bank = bank - LINE_MATCH_COUNTER;
@@ -129,7 +124,6 @@ namespace Refactored_Slot_Machine
                         bank = UIMethods.GetBetAmount();
                         UIMethods.WriteEmptyLine();
                     }
-
                     else
                     {
                         keepPlaying = false;

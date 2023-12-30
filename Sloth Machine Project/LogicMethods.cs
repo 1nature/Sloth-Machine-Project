@@ -83,7 +83,6 @@
                     {
                         lineMatch = false; break;
                     }
-
                     else
                     {
                         lineMatch = true;
@@ -114,7 +113,6 @@
                 {
                     lineMatch = false; break;
                 }
-
                 else
                 {
                     lineMatch = true;
@@ -145,7 +143,6 @@
                 {
                     lineMatch = false; break;
                 }
-
                 else
                 {
                     lineMatch = true;
@@ -159,6 +156,15 @@
 
             return diagonalTwoCounter;
         }
+
+        //public static int CheckOnWinningAmount(int lineMatchingCount)
+        //{
+            
+        //    //int result = lineMatchingCount;
+
+        //    //return result;
+        //    return lineMatchingCount;
+        //}
     }
 }
 
