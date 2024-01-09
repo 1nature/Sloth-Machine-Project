@@ -38,16 +38,14 @@ namespace Refactored_Slot_Machine
                     if (betSelection == Constants.LINE_TYPE_HOR || betSelection == Constants.LINE_TYPE_ALL)
                     {
                         int numberOfRowMatches = LogicMethods.CheckHorizontalLinesWinning(arrayGen);
-
+                        bank = bank + LogicMethods.CheckOnWinningAmount(numberOfRowMatches);
 
                         if (numberOfRowMatches >= Constants.LINE_MATCH_COUNTER)
                         {
-                            bank = bank + numberOfRowMatches;
                             UIMethods.PrintBetAmountIncrease(bank);
                         }
                         else
                         {
-                            bank = bank - Constants.BET_REDUCTION;
                             UIMethods.PrintBetAmountDecrease(bank);
                         }
                     }
@@ -57,15 +55,14 @@ namespace Refactored_Slot_Machine
                     if (betSelection == Constants.LINE_TYPE_VER || betSelection == Constants.LINE_TYPE_ALL)
                     {
                         int numberOfColumnMatches = LogicMethods.CheckVerticalLinesWinning(arrayGen);
+                        bank = bank + LogicMethods.CheckOnWinningAmount(numberOfColumnMatches);
 
                         if (numberOfColumnMatches >= Constants.LINE_MATCH_COUNTER)
                         {
-                            bank = bank + numberOfColumnMatches;
                             UIMethods.PrintBetAmountIncrease(bank);
                         }
                         else
                         {
-                            bank = bank - Constants.BET_REDUCTION;
                             UIMethods.PrintBetAmountDecrease(bank);
                         }
                     }
@@ -74,15 +71,14 @@ namespace Refactored_Slot_Machine
                     if (betSelection == Constants.LINE_TYPE_DIA || betSelection == Constants.LINE_TYPE_ALL)
                     {
                         int firstDiagonalMatches = LogicMethods.CheckDiagonalOneLineWinning(arrayGen);
+                        bank = bank + LogicMethods.CheckOnWinningAmount(firstDiagonalMatches);
 
                         if (firstDiagonalMatches >= Constants.LINE_MATCH_COUNTER)
                         {
-                            bank = bank + firstDiagonalMatches;
                             UIMethods.PrintBetAmountIncrease(bank);
                         }
                         else
                         {
-                            bank = bank - Constants.LINE_MATCH_COUNTER;
                             UIMethods.PrintBetAmountDecrease(bank);
                         }
                     }
@@ -91,15 +87,14 @@ namespace Refactored_Slot_Machine
                     if (betSelection == Constants.LINE_TYPE_DIA || betSelection == Constants.LINE_TYPE_ALL)
                     {
                         int secondDiagonalMatches = LogicMethods.CheckDiagonalTwoLineWinning(arrayGen);
-
+                        bank = bank + LogicMethods.CheckOnWinningAmount(secondDiagonalMatches);
+                        
                         if (secondDiagonalMatches >= Constants.LINE_MATCH_COUNTER)
                         {
-                            bank = bank + secondDiagonalMatches;
                             UIMethods.PrintBetAmountIncrease(bank);
                         }
                         else
                         {
-                            bank = bank - Constants.LINE_MATCH_COUNTER;
                             UIMethods.PrintBetAmountDecrease(bank);
                         }
                     }

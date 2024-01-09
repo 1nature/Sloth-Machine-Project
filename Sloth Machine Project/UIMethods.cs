@@ -5,7 +5,7 @@
         /// <summary>
         /// Shows welcome to the game message
         /// </summary>
-        
+
         public static void ShowWelcomeToTheGame()
         {
             Console.WriteLine("Welcome to the game\n");
@@ -43,7 +43,7 @@
         /// <returns>the betting choice of the user</returns>
         public static char GetBettingLinesResponse()
         {
-            char betLineChoice = Console.ReadKey().KeyChar; 
+            char betLineChoice = Console.ReadKey().KeyChar;
             return betLineChoice;
         }
 
@@ -68,6 +68,30 @@
             Console.WriteLine("You have not produced a winning row combination");
             Console.WriteLine($"Your bet amount has reduced to: ${amount}");
         }
+
+
+        //public static void PrintBetAmountDecrease(double originalBet, double newBetAmount)
+        //{
+
+        //    if (newBetAmount > originalBet)
+        //    {
+        //        UIMethods.WriteEmptyLine();
+        //        Console.WriteLine("You have not produced a winning row combination");
+        //        Console.WriteLine($"Your bet amount has reduced to: ${newBetAmount}");
+        //        //result = lineMatchingCount;
+        //        //UIMethods.PrintBetAmountIncrease(benk);
+        //    }
+        //    else if (newBetAmount < originalBet)
+        //    {
+        //        UIMethods.WriteEmptyLine();
+        //        Console.WriteLine("You have not produced a winning row combination");
+        //        Console.WriteLine($"Your bet amount has reduced to: ${newBetAmount}");
+        //        //result = -Constants.LINE_MATCH_COUNTER;
+        //        //UIMethods.PrintBetAmountDecrease(result);
+        //    }
+
+
+        //}
 
         /// <summary>
         /// Prints a 2D arrays of numbers for betting

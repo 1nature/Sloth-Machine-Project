@@ -1,4 +1,6 @@
-﻿namespace Sloth_Machine_Project
+﻿using Refactored_Slot_Machine;
+
+namespace Sloth_Machine_Project
 {
     public static class LogicMethods
     {
@@ -32,7 +34,7 @@
             bool lineMatch = true;
             int horizontalRowCounter = 0;
 
-            for (int rowIndex = 0; rowIndex <Constants.NUMBER_OF_ROWS; rowIndex++)
+            for (int rowIndex = 0; rowIndex < Constants.NUMBER_OF_ROWS; rowIndex++)
             {
                 for (int columnIndex = 0; columnIndex < Constants.NUMBER_OF_COLUMNS; columnIndex++)
                 {
@@ -82,7 +84,6 @@
                 {
                     verticalColumnCounter++;
                 }
-
             }
             return verticalColumnCounter;
         }
@@ -113,7 +114,6 @@
             {
                 diagonalOneCounter++;
             }
-
             return diagonalOneCounter;
         }
 
@@ -143,18 +143,27 @@
             {
                 diagonalTwoCounter++;
             }
-
             return diagonalTwoCounter;
         }
 
-        //public static int CheckOnWinningAmount(int lineMatchingCount)
-        //{
-            
-        //    //int result = lineMatchingCount;
-
-        //    //return result;
-        //    return lineMatchingCount;
-        //}
+        /// <summary>
+        /// This either increases or decreases the bet amount
+        /// </summary>
+        /// <param name="lineMatchingCount"></param>
+        /// <returns>a result that either increments or decrements the bet amount </returns>
+        public static int CheckOnWinningAmount(int lineMatchingCount)
+        {
+            int result;
+            if (lineMatchingCount >= Constants.LINE_MATCH_COUNTER)
+            {
+                result = lineMatchingCount;
+            }
+            else
+            {
+                result = (- Constants.LINE_MATCH_COUNTER);
+            }
+            return result;
+        }
     }
 }
 
